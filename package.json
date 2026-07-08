@@ -1,0 +1,28 @@
+{
+  "name": "rico-samba-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site oficial do artista Rico Samba - samba, bossa, choro e pagode moderno.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "^15.5.20",
+    "react": "19.1.1",
+    "react-dom": "19.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "20.14.10",
+    "@types/react": "19.1.8",
+    "@types/react-dom": "19.1.6",
+    "autoprefixer": "10.4.19",
+    "eslint": "^9.39.4",
+    "eslint-config-next": "^15.5.20",
+    "postcss": "^8.5.16",
+    "tailwindcss": "3.4.6",
+    "typescript": "5.5.3"
+  }
+}

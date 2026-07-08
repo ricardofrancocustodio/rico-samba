@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1100" width="900" height="1100" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Rico Samba em ambiente intimista">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#241109"/>
+      <stop offset="0.55" stop-color="#0E0B0A"/>
+      <stop offset="1" stop-color="#080605"/>
+    </linearGradient>
+    <radialGradient id="warm" cx="0.5" cy="0.35" r="0.6">
+      <stop offset="0" stop-color="#E0A64B" stop-opacity="0.3"/>
+      <stop offset="1" stop-color="#E0A64B" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="bokeh" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#E0A64B" stop-opacity="0.85"/>
+      <stop offset="1" stop-color="#C89A3C" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft"><feGaussianBlur stdDeviation="5"/></filter>
+    <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope="0.06"/></feComponentTransfer><feComposite operator="over" in2="SourceGraphic"/></filter>
+  </defs>
+  <rect width="900" height="1100" fill="url(#bg)"/>
+  <rect width="900" height="1100" fill="url(#warm)"/>
+
+  <g filter="url(#soft)">
+    <circle cx="160" cy="180" r="22" fill="url(#bokeh)"/>
+    <circle cx="720" cy="140" r="26" fill="url(#bokeh)"/>
+    <circle cx="820" cy="360" r="18" fill="url(#bokeh)"/>
+    <circle cx="120" cy="470" r="16" fill="url(#bokeh)"/>
+  </g>
+
+  <!-- musician silhouette -->
+  <g transform="translate(280 300)" fill="#000" opacity="0.85">
+    <circle cx="180" cy="90" r="66"/>
+    <path d="M70 200 q110 -50 220 0 l50 460 q-160 60 -320 0 Z"/>
+  </g>
+  <!-- violão -->
+  <g transform="translate(300 720) rotate(-14)">
+    <ellipse cx="0" cy="0" rx="150" ry="185" fill="#2a160c" stroke="#A85F2A" stroke-width="5" opacity="0.92"/>
+    <ellipse cx="0" cy="-12" rx="52" ry="52" fill="#0E0B0A"/>
+    <rect x="-16" y="-330" width="32" height="220" rx="10" fill="#2a160c" stroke="#A85F2A" stroke-width="4"/>
+  </g>
+
+  <ellipse cx="450" cy="1030" rx="360" ry="70" fill="#E0A64B" opacity="0.12" filter="url(#soft)"/>
+  <rect width="900" height="1100" fill="#000" opacity="0.22" filter="url(#grain)"/>
+</svg>

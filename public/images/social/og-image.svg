@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Rico Samba — Música Brasileira Autoral">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1a0d0a"/>
+      <stop offset="0.5" stop-color="#0E0B0A"/>
+      <stop offset="1" stop-color="#080605"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.78" cy="0.5" r="0.6">
+      <stop offset="0" stop-color="#E0A64B" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#E0A64B" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#E0A64B"/>
+      <stop offset="0.5" stop-color="#C89A3C"/>
+      <stop offset="1" stop-color="#A85F2A"/>
+    </linearGradient>
+    <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope="0.05"/></feComponentTransfer><feComposite operator="over" in2="SourceGraphic"/></filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <!-- pandeiro on the right -->
+  <g transform="translate(950 315)">
+    <g stroke="url(#gold)" fill="none">
+      <circle r="170" stroke-width="4"/>
+      <circle r="128" stroke-width="2" opacity="0.5"/>
+    </g>
+    <g fill="url(#gold)">
+      <circle cx="0" cy="-170" r="9"/>
+      <circle cx="120" cy="-120" r="9"/>
+      <circle cx="170" cy="0" r="9"/>
+      <circle cx="120" cy="120" r="9"/>
+      <circle cx="0" cy="170" r="9"/>
+      <circle cx="-120" cy="120" r="9"/>
+      <circle cx="-170" cy="0" r="9"/>
+      <circle cx="-120" cy="-120" r="9"/>
+    </g>
+    <path d="M-30 -60v86a26 26 0 1 1-15 -24V-42l52-12v60a26 26 0 1 1-15 -24V-72l-22 4Z" fill="url(#gold)"/>
+  </g>
+
+  <rect width="1200" height="630" fill="#000" opacity="0.28" filter="url(#grain)"/>
+
+  <text x="90" y="150" font-family="Georgia, serif" font-size="30" letter-spacing="10" fill="#C89A3C">RICO SAMBA</text>
+  <text x="86" y="330" font-family="Georgia, serif" font-weight="700" font-size="120" fill="#D8C39A">Música</text>
+  <text x="86" y="440" font-family="Georgia, serif" font-weight="700" font-size="120" fill="url(#gold)">Brasileira</text>
+  <text x="90" y="530" font-family="Georgia, serif" font-size="34" fill="#D8C39A" opacity="0.75" font-style="italic">Samba, bossa, choro e pagode moderno</text>
+</svg>

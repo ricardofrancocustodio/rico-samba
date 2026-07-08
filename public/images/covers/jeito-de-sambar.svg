@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800" role="img" aria-label="Álbum: Jeito de Sambar">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#5A1018"/>
+      <stop offset="0.45" stop-color="#3A2418"/>
+      <stop offset="1" stop-color="#0E0B0A"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.42" r="0.6">
+      <stop offset="0" stop-color="#E0A64B" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#E0A64B" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#E0A64B"/>
+      <stop offset="0.5" stop-color="#C89A3C"/>
+      <stop offset="1" stop-color="#A85F2A"/>
+    </linearGradient>
+    <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope="0.05"/></feComponentTransfer><feComposite operator="over" in2="SourceGraphic"/></filter>
+  </defs>
+  <rect width="800" height="800" fill="url(#bg)"/>
+  <rect width="800" height="800" fill="url(#glow)"/>
+
+  <!-- Pandeiro mark -->
+  <g transform="translate(400 340)" stroke="url(#gold)" fill="none">
+    <circle r="150" stroke-width="4" opacity="0.95"/>
+    <circle r="112" stroke-width="2" opacity="0.55"/>
+  </g>
+  <g fill="url(#gold)">
+    <!-- jingles -->
+    <circle cx="400" cy="180" r="10"/>
+    <circle cx="513" cy="227" r="10"/>
+    <circle cx="560" cy="340" r="10"/>
+    <circle cx="513" cy="453" r="10"/>
+    <circle cx="400" cy="500" r="10"/>
+    <circle cx="287" cy="453" r="10"/>
+    <circle cx="240" cy="340" r="10"/>
+    <circle cx="287" cy="227" r="10"/>
+  </g>
+  <!-- note -->
+  <g transform="translate(400 340)" fill="url(#gold)">
+    <path d="M-28 -55v78a24 24 0 1 1-14 -22V-38l48-11v55a24 24 0 1 1-14 -22V-66l-20 4Z"/>
+  </g>
+
+  <rect width="800" height="800" fill="#000" opacity="0.3" filter="url(#grain)"/>
+
+  <text x="400" y="115" text-anchor="middle" font-family="Georgia, serif" font-size="26" letter-spacing="10" fill="#E0A64B" opacity="0.9">RICO SAMBA</text>
+  <text x="400" y="640" text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="96" fill="#D8C39A">Jeito de</text>
+  <text x="400" y="740" text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="96" fill="url(#gold)">Sambar</text>
+</svg>

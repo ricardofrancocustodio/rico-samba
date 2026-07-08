@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ambiente musical de Rico Samba">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1a0d0a"/>
+      <stop offset="0.5" stop-color="#0E0B0A"/>
+      <stop offset="1" stop-color="#080605"/>
+    </linearGradient>
+    <radialGradient id="stage" cx="0.62" cy="0.62" r="0.55">
+      <stop offset="0" stop-color="#E0A64B" stop-opacity="0.28"/>
+      <stop offset="0.5" stop-color="#A85F2A" stop-opacity="0.1"/>
+      <stop offset="1" stop-color="#A85F2A" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="bokeh" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#E0A64B" stop-opacity="0.9"/>
+      <stop offset="0.6" stop-color="#C89A3C" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#C89A3C" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft"><feGaussianBlur stdDeviation="6"/></filter>
+    <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope="0.06"/></feComponentTransfer><feComposite operator="over" in2="SourceGraphic"/></filter>
+  </defs>
+
+  <rect width="1920" height="1080" fill="url(#sky)"/>
+  <rect width="1920" height="1080" fill="url(#stage)"/>
+
+  <!-- distant city skyline -->
+  <g fill="#1c110c" opacity="0.7">
+    <rect x="0" y="720" width="120" height="360"/>
+    <rect x="140" y="660" width="90" height="420"/>
+    <rect x="250" y="700" width="70" height="380"/>
+    <rect x="1650" y="690" width="110" height="390"/>
+    <rect x="1780" y="640" width="90" height="440"/>
+    <rect x="1500" y="730" width="80" height="350"/>
+  </g>
+
+  <!-- warm string-light bokeh -->
+  <g filter="url(#soft)">
+    <circle cx="240" cy="230" r="26" fill="url(#bokeh)"/>
+    <circle cx="430" cy="170" r="18" fill="url(#bokeh)"/>
+    <circle cx="640" cy="250" r="30" fill="url(#bokeh)"/>
+    <circle cx="880" cy="150" r="16" fill="url(#bokeh)"/>
+    <circle cx="1120" cy="220" r="24" fill="url(#bokeh)"/>
+    <circle cx="1360" cy="160" r="20" fill="url(#bokeh)"/>
+    <circle cx="1600" cy="240" r="28" fill="url(#bokeh)"/>
+    <circle cx="1780" cy="180" r="16" fill="url(#bokeh)"/>
+    <circle cx="330" cy="430" r="14" fill="url(#bokeh)"/>
+    <circle cx="1520" cy="470" r="16" fill="url(#bokeh)"/>
+  </g>
+
+  <!-- musician silhouette with violão -->
+  <g transform="translate(1150 470)" fill="#000" opacity="0.82">
+    <!-- head -->
+    <circle cx="140" cy="70" r="52"/>
+    <!-- torso -->
+    <path d="M60 150 q80 -40 160 0 l30 300 q-110 40 -220 0 Z"/>
+    <!-- arm to guitar -->
+    <path d="M70 200 q-70 60 -110 150 l40 30 q60 -80 120 -120 Z"/>
+  </g>
+  <!-- violão body -->
+  <g transform="translate(1000 640) rotate(-18)">
+    <ellipse cx="0" cy="0" rx="120" ry="150" fill="#2a160c" stroke="#A85F2A" stroke-width="4" opacity="0.9"/>
+    <ellipse cx="0" cy="-10" rx="42" ry="42" fill="#0E0B0A"/>
+    <rect x="-14" y="-260" width="28" height="170" rx="8" fill="#2a160c" stroke="#A85F2A" stroke-width="3"/>
+  </g>
+
+  <!-- floor light -->
+  <ellipse cx="1160" cy="1000" rx="520" ry="80" fill="#E0A64B" opacity="0.12" filter="url(#soft)"/>
+
+  <rect width="1920" height="1080" fill="#000" opacity="0.25" filter="url(#grain)"/>
+</svg>

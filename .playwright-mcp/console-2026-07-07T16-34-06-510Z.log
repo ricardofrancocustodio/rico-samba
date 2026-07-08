@@ -1,0 +1,14 @@
+[    2206ms] [ERROR] The Content Security Policy directive 'upgrade-insecure-requests' is ignored when delivered in a report-only policy. @ https://www.deezer.com/br/artist/348248491:0
+[    2506ms] [WARNING] document.domain mutation is ignored because the surrounding agent cluster is origin-keyed. @ https://www.deezer.com/br/artist/348248491:94
+[    3224ms] [ERROR] The Content Security Policy directive 'upgrade-insecure-requests' is ignored when delivered in a report-only policy. @ https://cdn-files.dzcdn.net/cache/js/app-web.b6dc085714a15f302440.js:280
+[    3226ms] [ERROR] The Content Security Policy directive 'upgrade-insecure-requests' is ignored when delivered in a report-only policy. @ https://cdn-files.dzcdn.net/cache/js/app-web.b6dc085714a15f302440.js:280
+[    3790ms] [ERROR] The Content Security Policy directive 'upgrade-insecure-requests' is ignored when delivered in a report-only policy. @ https://www.deezer.com/mVgopxS4w61d1dXT2g9I/f5LOzz9bYfwOwh5J/ejN9VGIBBQ/TggRIWMI/HgIC:0
+[    3791ms] [ERROR] The Content Security Policy directive 'upgrade-insecure-requests' is ignored when delivered in a report-only policy. @ https://www.deezer.com/mVgopxS4w61d1dXT2g9I/f5LOzz9bYfwOwh5J/ejN9VGIBBQ/TggRIWMI/HgIC:0
+[    4522ms] [ERROR] The Content Security Policy directive 'upgrade-insecure-requests' is ignored when delivered in a report-only policy. @ https://cdn-assets.dzcdn.net/common/js/gdpr-appliance.js:2
+[    4523ms] [ERROR] The Content Security Policy directive 'upgrade-insecure-requests' is ignored when delivered in a report-only policy. @ https://cdn-assets.dzcdn.net/common/js/gdpr-appliance.js:2
+[    4671ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://cdn-images.dzcdn.net/images/cover/500x500.jpg:0
+[    4997ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://auth.deezer.com/login/renew?jo=p&rto=c&i=c:0
+[    8078ms] [ERROR] The Content Security Policy directive 'upgrade-insecure-requests' is ignored when delivered in a report-only policy. @ https://www.googletagmanager.com/gtag/js?id=DC-14894270&cx=c&gtm=4e6760:139
+[    8486ms] [ERROR] The Content Security Policy directive 'upgrade-insecure-requests' is ignored when delivered in a report-only policy. @ https://t.contentsquare.net/uxa/92e6a110fb3da.js:15
+[    8487ms] [ERROR] The Content Security Policy directive 'upgrade-insecure-requests' is ignored when delivered in a report-only policy. @ https://t.contentsquare.net/uxa/92e6a110fb3da.js:15
+[    8586ms] [ERROR] The Content Security Policy directive 'upgrade-insecure-requests' is ignored when delivered in a report-only policy. @ https://sc-static.net/scevent.min.js:1
