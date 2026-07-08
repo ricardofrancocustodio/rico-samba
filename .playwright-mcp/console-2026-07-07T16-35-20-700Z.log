@@ -1,9 +1,0 @@
-[    1394ms] [WARNING] It is recommended that a robustness level be specified. Not specifying the robustness level could result in unexpected behavior. @ https://open.spotifycdn.com/cdn/build/web-player/vendor~web-player.749de5fb.js:0
-[    1395ms] [WARNING] com.microsoft.playready.recommendation: Internal testing is highly recommended prior to enabling PlayReady playback on Windows. Failure to do so may cause application instability or playback errors.
-
-Before generating a request, setServerCertificate() must be called with a valid server certificate. Otherwise, generateRequest() could fail. @ https://open.spotifycdn.com/cdn/build/web-player/vendor~web-player.749de5fb.js:0
-[    1395ms] [WARNING] com.microsoft.playready.recommendation.3000: Internal testing is highly recommended prior to enabling PlayReady playback on Windows. Failure to do so may cause application instability or playback errors.
-
-Before generating a request, setServerCertificate() must be called with a valid server certificate. Otherwise, generateRequest() could fail. @ https://open.spotifycdn.com/cdn/build/web-player/vendor~web-player.749de5fb.js:0
-[    1626ms] [LOG] Should auto-play but RC is not enabled @ https://open.spotifycdn.com/cdn/build/web-player/web-player.4bccd6ea.js:4
-[    3574ms] [WARNING] Error while trying to use the following icon from the Manifest: https://open.spotifycdn.com/cdn/images/icons/Spotify_256.e249641c.png (Download error or resource isn't a valid image) @ https://open.spotify.com/artist/0JQziV8OZE3o9UhFNSIqD2?si=magMxjZhQHq5NrtVu_YUqw&nd=1&dlsi=6540dee24f4b4b8b:0
