@@ -6,10 +6,11 @@
  */
 
 export type Song = {
+  /** Título da música — permanece em português (nome próprio da faixa). */
   title: string;
+  /** Chave usada para buscar a descrição traduzida em messages: songs.<slug>. */
   slug: string;
-  description: string;
-  /** Trecho curto/frase de destaque da letra (opcional). */
+  /** Trecho curto/frase de destaque da letra (opcional) — permanece em português. */
   hook?: string;
   cover: string;
   spotifyUrl: string;
@@ -21,9 +22,8 @@ export const songs: Song[] = [
   {
     title: 'Você',
     slug: 'voce',
-    description: 'Canção romântica e afetiva sobre presença, memória e desejo.',
     hook: 'Você é o samba que ficou em mim.',
-    cover: '/images/covers/voce.svg',
+    cover: '/images/covers/voce.png',
     spotifyUrl: '',
     youtubeUrl: '',
     lyricVideoUrl: '',
@@ -31,9 +31,8 @@ export const songs: Song[] = [
   {
     title: 'Doce Amor',
     slug: 'doce-amor',
-    description: 'Samba romântico de clima íntimo, com sentimento de paixão e lembrança.',
     hook: 'Doce amor que me embala devagar.',
-    cover: '/images/covers/doce-amor.svg',
+    cover: '/images/covers/doce-amor.png',
     spotifyUrl: '',
     youtubeUrl: '',
     lyricVideoUrl: '',
@@ -41,9 +40,8 @@ export const songs: Song[] = [
   {
     title: 'Armadilhas do Amor',
     slug: 'armadilhas-do-amor',
-    description: 'Música sobre os conflitos, ilusões e jogos emocionais de uma relação.',
     hook: 'Caí de novo nas armadilhas do amor.',
-    cover: '/images/covers/armadilhas-do-amor.svg',
+    cover: '/images/covers/armadilhas-do-amor.png',
     spotifyUrl: '',
     youtubeUrl: '',
     lyricVideoUrl: '',
@@ -51,9 +49,8 @@ export const songs: Song[] = [
   {
     title: 'Mais Você',
     slug: 'mais-voce',
-    description: 'Canção sobre escolha, dependência afetiva e medo de perder quem se ama.',
     hook: 'Eu sou mais você.',
-    cover: '/images/covers/mais-voce.svg',
+    cover: '/images/covers/mais-voce.png',
     spotifyUrl: '',
     youtubeUrl: '',
     lyricVideoUrl: '',
@@ -61,9 +58,8 @@ export const songs: Song[] = [
   {
     title: 'Amor e Razão',
     slug: 'amor-e-razao',
-    description: 'Faixa sobre o embate entre sentimento e lucidez.',
     hook: 'Amor e razão nem sempre caminham juntos.',
-    cover: '/images/covers/amor-e-razao.svg',
+    cover: '/images/covers/amor-e-razao.png',
     spotifyUrl: '',
     youtubeUrl: '',
     lyricVideoUrl: '',
@@ -71,9 +67,8 @@ export const songs: Song[] = [
   {
     title: 'Fala na Cara',
     slug: 'fala-na-cara',
-    description: 'Samba com atitude sobre sinceridade, coragem e fim de joguinhos emocionais.',
     hook: 'Se é pra doer, fala na cara.',
-    cover: '/images/covers/fala-na-cara.svg',
+    cover: '/images/covers/fala-na-cara.png',
     spotifyUrl: '',
     youtubeUrl: '',
     lyricVideoUrl: '',
@@ -81,9 +76,8 @@ export const songs: Song[] = [
   {
     title: 'Brigas',
     slug: 'brigas',
-    description: 'Música sobre desgaste, orgulho e conflitos dentro de uma relação.',
     hook: 'Nossas brigas cansaram o amor.',
-    cover: '/images/covers/brigas.svg',
+    cover: '/images/covers/brigas.png',
     spotifyUrl: '',
     youtubeUrl: '',
     lyricVideoUrl: '',
@@ -91,9 +85,26 @@ export const songs: Song[] = [
   {
     title: 'Saudade',
     slug: 'saudade',
-    description: 'Canção sobre aceitar o fim, sentir falta e decidir não procurar mais.',
     hook: 'Eu vou morrer de saudade, mas não vou mais te procurar.',
-    cover: '/images/covers/saudade.svg',
+    cover: '/images/covers/saudade.png',
+    spotifyUrl: '',
+    youtubeUrl: '',
+    lyricVideoUrl: '',
+  },
+  {
+    title: 'Bem de Leve',
+    slug: 'bem-de-leve',
+    hook: '',
+    cover: '/images/covers/bem-de-leve.png',
+    spotifyUrl: '',
+    youtubeUrl: '',
+    lyricVideoUrl: '',
+  },
+  {
+    title: 'Fatalidades',
+    slug: 'fatalidades',
+    hook: '',
+    cover: '/images/covers/fatalidades.png',
     spotifyUrl: '',
     youtubeUrl: '',
     lyricVideoUrl: '',
