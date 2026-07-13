@@ -3,14 +3,18 @@
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import type { Song } from '@/data/songs';
-import { hasLink, safeLink } from '@/data/links';
+import { hasLink } from '@/data/links';
 import { PlayIcon, YoutubeIcon, ShareIcon } from '@/components/icons';
+import { PlayerModal } from '@/components/PlayerModal';
+
+type ModalState = { url: string; title: string; type: 'spotify' | 'youtube' } | null;
 
 export function SongCard({ song }: { song: Song }) {
   const t = useTranslations('songCard');
   const ts = useTranslations('songs');
   const description = ts(song.slug);
   const [copied, setCopied] = useState(false);
+  const [modal, setModal] = useState<ModalState>(null);
   const hasSpotify = hasLink(song.spotifyUrl);
   const hasLyric = hasLink(song.lyricVideoUrl);
 
@@ -34,6 +38,15 @@ export function SongCard({ song }: { song: Song }) {
   }
 
   return (
+    <>
+    {modal && (
+      <PlayerModal
+        url={modal.url}
+        title={modal.title}
+        type={modal.type}
+        onClose={() => setModal(null)}
+      />
+    )}
     <article className="group card-surface flex h-full flex-col overflow-hidden transition-all duration-300 hover:-translate-y-1.5 hover:border-dourado/30 hover:shadow-soft">
       <div className="relative aspect-square overflow-hidden">
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -56,11 +69,10 @@ export function SongCard({ song }: { song: Song }) {
         <p className="mt-2 flex-1 text-sm leading-relaxed text-creme/60">{description}</p>
 
         <div className="mt-5 flex flex-wrap items-center gap-2">
-          <a
-            href={safeLink(song.spotifyUrl)}
-            target={hasSpotify ? '_blank' : undefined}
-            rel={hasSpotify ? 'noopener noreferrer' : undefined}
-            aria-disabled={!hasSpotify}
+          <button
+            type="button"
+            onClick={() => hasSpotify && setModal({ url: song.spotifyUrl, title: song.title, type: 'spotify' })}
+            disabled={!hasSpotify}
             className={`inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-semibold transition-colors ${
               hasSpotify
                 ? 'bg-gold-gradient text-grafite hover:brightness-110'
@@ -69,12 +81,11 @@ export function SongCard({ song }: { song: Song }) {
           >
             <PlayIcon className="h-3.5 w-3.5" />
             {t('listen')}
-          </a>
-          <a
-            href={safeLink(song.lyricVideoUrl)}
-            target={hasLyric ? '_blank' : undefined}
-            rel={hasLyric ? 'noopener noreferrer' : undefined}
-            aria-disabled={!hasLyric}
+          </button>
+          <button
+            type="button"
+            onClick={() => hasLyric && setModal({ url: song.lyricVideoUrl, title: song.title, type: 'youtube' })}
+            disabled={!hasLyric}
             className={`inline-flex items-center gap-1.5 rounded-full border px-3.5 py-1.5 text-xs font-semibold transition-colors ${
               hasLyric
                 ? 'border-dourado/50 text-dourado hover:bg-dourado/10'
@@ -83,7 +94,7 @@ export function SongCard({ song }: { song: Song }) {
           >
             <YoutubeIcon className="h-3.5 w-3.5" />
             {t('lyricVideo')}
-          </a>
+          </button>
           <button
             type="button"
             onClick={handleShare}
@@ -96,5 +107,6 @@ export function SongCard({ song }: { song: Song }) {
         </div>
       </div>
     </article>
+    </>
   );
 }
