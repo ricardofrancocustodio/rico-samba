@@ -1,7 +1,9 @@
+import { useTranslations } from 'next-intl';
 import { PlayIcon, YoutubeIcon, ArrowRightIcon } from '@/components/icons';
 import { socialLinks, safeLink, hasLink } from '@/data/links';
 
 export function Hero() {
+  const t = useTranslations('hero');
   return (
     <section id="inicio" className="relative flex min-h-[100svh] items-center overflow-hidden">
       {/* Background artwork */}
@@ -20,7 +22,7 @@ export function Hero() {
       <div className="container-x relative w-full pt-28 pb-16">
         <div className="max-w-2xl">
           <p className="animate-fade-up section-label" style={{ animationDelay: '0.1s' }}>
-            Música brasileira autoral
+            {t('label')}
           </p>
 
           <h1
@@ -34,7 +36,7 @@ export function Hero() {
             className="animate-fade-up mt-6 max-w-xl text-lg leading-relaxed text-creme/80 sm:text-xl"
             style={{ animationDelay: '0.35s' }}
           >
-            Samba, bossa, choro e pagode moderno em canções sobre amor, saudade e recomeço.
+            {t('subtitle')}
           </p>
 
           <p
@@ -45,7 +47,7 @@ export function Hero() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-dourado opacity-60" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-dourado" />
             </span>
-            Novo projeto: <strong className="font-semibold">Jeito de Sambar</strong>
+            {t('badgeNew')} <strong className="font-semibold">{t('projectName')}</strong>
           </p>
 
           <div
@@ -59,7 +61,7 @@ export function Hero() {
               className="btn-primary"
             >
               <PlayIcon className="h-4 w-4" />
-              Ouvir nas plataformas
+              {t('listenPlatforms')}
             </a>
             <a
               href={hasLink(socialLinks.youtube) ? safeLink(socialLinks.youtube) : '#videos'}
@@ -68,10 +70,10 @@ export function Hero() {
               className="btn-secondary"
             >
               <YoutubeIcon className="h-4 w-4" />
-              Assistir no YouTube
+              {t('watchYoutube')}
             </a>
             <a href="#lancamentos" className="btn-ghost">
-              Conhecer as músicas
+              {t('knowSongs')}
               <ArrowRightIcon className="h-4 w-4" />
             </a>
           </div>
@@ -81,10 +83,10 @@ export function Hero() {
       {/* Scroll hint */}
       <a
         href="#ouvir"
-        aria-label="Rolar para baixo"
+        aria-label={t('scrollAria')}
         className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-creme/50 transition-colors hover:text-dourado sm:flex"
       >
-        <span className="text-[10px] uppercase tracking-[0.3em]">Explorar</span>
+        <span className="text-[10px] uppercase tracking-[0.3em]">{t('explore')}</span>
         <span className="flex h-9 w-5 items-start justify-center rounded-full border border-creme/30 p-1">
           <span className="h-2 w-1 animate-bounce rounded-full bg-dourado" />
         </span>

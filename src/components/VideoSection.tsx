@@ -1,14 +1,17 @@
 'use client';
 
 import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 import { Reveal } from '@/components/Reveal';
 import { videos, type Video } from '@/data/videos';
 import { socialLinks, safeLink, hasLink } from '@/data/links';
 import { PlayIcon, YoutubeIcon, ArrowRightIcon } from '@/components/icons';
 
 function VideoCard({ video, featured = false }: { video: Video; featured?: boolean }) {
+  const t = useTranslations('video');
   const [playing, setPlaying] = useState(false);
   const available = Boolean(video.youtubeId);
+  const label = t('lyricVideoLabel');
 
   return (
     <div
@@ -19,7 +22,7 @@ function VideoCard({ video, featured = false }: { video: Video; featured?: boole
       {playing && available ? (
         <iframe
           src={`https://www.youtube-nocookie.com/embed/${video.youtubeId}?autoplay=1&rel=0`}
-          title={`${video.label} — ${video.title}`}
+          title={`${label} — ${video.title}`}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
           className="absolute inset-0 h-full w-full"
@@ -30,19 +33,19 @@ function VideoCard({ video, featured = false }: { video: Video; featured?: boole
           onClick={() => available && setPlaying(true)}
           disabled={!available}
           className="absolute inset-0 h-full w-full"
-          aria-label={available ? `Assistir ${video.title}` : `${video.title} em breve`}
+          aria-label={available ? t('watchAria', { title: video.title }) : t('soonAria', { title: video.title })}
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={video.poster}
-            alt={`${video.label} — ${video.title}`}
+            alt={`${label} — ${video.title}`}
             loading="lazy"
             className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-grafite/90 via-grafite/20 to-transparent" />
 
           <span className="absolute left-4 top-4 rounded-full bg-grafite/70 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-dourado backdrop-blur">
-            {video.label}
+            {label}
           </span>
 
           <span className="absolute inset-0 flex items-center justify-center">
@@ -61,7 +64,7 @@ function VideoCard({ video, featured = false }: { video: Video; featured?: boole
             <span className="font-display text-lg font-semibold text-creme">{video.title}</span>
             {!available && (
               <span className="text-xs font-medium uppercase tracking-wide text-creme/50">
-                Em breve
+                {t('soon')}
               </span>
             )}
           </span>
@@ -72,16 +75,17 @@ function VideoCard({ video, featured = false }: { video: Video; featured?: boole
 }
 
 export function VideoSection() {
+  const t = useTranslations('video');
   const [featured, ...rest] = videos;
 
   return (
     <section id="videos" className="relative scroll-mt-20 py-20 sm:py-28">
       <div className="container-x">
         <Reveal className="max-w-2xl">
-          <p className="section-label">Vídeos e letras</p>
-          <h2 className="heading-2">Lyric videos</h2>
+          <p className="section-label">{t('label')}</p>
+          <h2 className="heading-2">{t('title')}</h2>
           <p className="mt-4 text-lg text-creme/70">
-            Assista aos lyric videos, versões especiais e bastidores das músicas de Rico Samba.
+            {t('subtitle')}
           </p>
         </Reveal>
 
@@ -114,7 +118,7 @@ export function VideoSection() {
             className="btn-secondary"
           >
             <YoutubeIcon className="h-4 w-4" />
-            Ver canal no YouTube
+            {t('watchChannel')}
             <ArrowRightIcon className="h-4 w-4" />
           </a>
         </Reveal>

@@ -1,16 +1,18 @@
+import { useTranslations } from 'next-intl';
 import { Reveal } from '@/components/Reveal';
 import { SongCard } from '@/components/SongCard';
 import { songs } from '@/data/songs';
 
 export function ReleasesGrid() {
+  const t = useTranslations('releases');
   return (
     <section id="lancamentos" className="relative scroll-mt-20 py-20 sm:py-28">
       <div className="container-x">
         <Reveal className="max-w-2xl">
-          <p className="section-label">Lançamentos</p>
-          <h2 className="heading-2">Discografia</h2>
+          <p className="section-label">{t('label')}</p>
+          <h2 className="heading-2">{t('title')}</h2>
           <p className="mt-4 text-lg text-creme/70">
-            Canções que transformam histórias de amor, saudade e recomeço em samba moderno.
+            {t('subtitle')}
           </p>
         </Reveal>
 

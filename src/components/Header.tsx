@@ -1,21 +1,25 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
+import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/navigation';
 import { Logo } from '@/components/Logo';
+import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 import { MenuIcon, CloseIcon, PlayIcon } from '@/components/icons';
 import { socialLinks, safeLink, hasLink } from '@/data/links';
 
-const navItems = [
-  { label: 'Início', href: '/#inicio' },
-  { label: 'Lançamentos', href: '/#lancamentos' },
-  { label: 'Vídeos', href: '/#videos' },
-  { label: 'Sobre', href: '/#sobre' },
-  { label: 'EPK / Contrate', href: '/epk' },
-  { label: 'Contato', href: '/#contato' },
-];
+const navKeys = [
+  { key: 'inicio', href: '/#inicio' },
+  { key: 'lancamentos', href: '/#lancamentos' },
+  { key: 'videos', href: '/#videos' },
+  { key: 'sobre', href: '/#sobre' },
+  { key: 'epk', href: '/epk' },
+  { key: 'contato', href: '/#contato' },
+] as const;
 
 export function Header() {
+  const t = useTranslations('nav');
+  const th = useTranslations('header');
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -51,19 +55,20 @@ export function Header() {
         </Link>
 
         <ul className="hidden items-center gap-8 lg:flex">
-          {navItems.map((item) => (
+          {navKeys.map((item) => (
             <li key={item.href}>
               <Link
                 href={item.href}
                 className="link-underline text-sm font-medium text-creme/80 transition-colors hover:text-creme"
               >
-                {item.label}
+                {t(item.key)}
               </Link>
             </li>
           ))}
         </ul>
 
         <div className="hidden items-center gap-3 lg:flex">
+          <LanguageSwitcher />
           <a
             href={listenHref}
             target={hasLink(socialLinks.smartLink) ? '_blank' : undefined}
@@ -71,18 +76,21 @@ export function Header() {
             className="btn-primary"
           >
             <PlayIcon className="h-4 w-4" />
-            Ouvir agora
+            {th('listen')}
           </a>
         </div>
 
-        <button
-          type="button"
-          onClick={() => setOpen(true)}
-          aria-label="Abrir menu"
-          className="text-creme lg:hidden"
-        >
-          <MenuIcon className="h-7 w-7" />
-        </button>
+        <div className="flex items-center gap-3 lg:hidden">
+          <LanguageSwitcher />
+          <button
+            type="button"
+            onClick={() => setOpen(true)}
+            aria-label="Menu"
+            className="text-creme"
+          >
+            <MenuIcon className="h-7 w-7" />
+          </button>
+        </div>
       </nav>
 
       {/* Mobile menu */}
@@ -109,7 +117,7 @@ export function Header() {
           </div>
 
           <ul className="mt-14 flex flex-col gap-1">
-            {navItems.map((item, i) => (
+            {navKeys.map((item, i) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
@@ -117,7 +125,7 @@ export function Header() {
                   className="block border-b border-white/5 py-4 font-display text-2xl text-creme/90 transition-colors hover:text-dourado"
                   style={{ transitionDelay: `${i * 40}ms` }}
                 >
-                  {item.label}
+                  {t(item.key)}
                 </Link>
               </li>
             ))}
@@ -131,7 +139,7 @@ export function Header() {
             className="btn-primary mt-auto mb-10 w-full"
           >
             <PlayIcon className="h-4 w-4" />
-            Ouvir agora
+            {th('listen')}
           </a>
         </div>
       </div>

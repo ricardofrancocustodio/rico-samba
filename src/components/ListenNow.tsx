@@ -1,16 +1,18 @@
+import { useTranslations } from 'next-intl';
 import { Reveal } from '@/components/Reveal';
 import { streamingPlatforms } from '@/data/platforms';
 import { hasLink, safeLink } from '@/data/links';
 
 export function ListenNow() {
+  const t = useTranslations('listen');
   return (
     <section id="ouvir" className="relative scroll-mt-20 py-20 sm:py-28">
       <div className="container-x">
         <Reveal className="max-w-2xl">
-          <p className="section-label">Ouça agora</p>
-          <h2 className="heading-2">Ouça Rico Samba</h2>
+          <p className="section-label">{t('label')}</p>
+          <h2 className="heading-2">{t('title')}</h2>
           <p className="mt-4 text-lg text-creme/70">
-            Escolha sua plataforma preferida e acompanhe os lançamentos onde você já ouve música.
+            {t('subtitle')}
           </p>
         </Reveal>
 
@@ -40,7 +42,7 @@ export function ListenNow() {
                   <span className="flex flex-col">
                     <span className="font-medium text-creme">{platform.name}</span>
                     <span className="text-xs text-creme/50">
-                      {active ? 'Ouvir agora' : 'Em breve'}
+                      {active ? t('listenNow') : t('soon')}
                     </span>
                   </span>
                 </a>

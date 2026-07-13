@@ -1,19 +1,23 @@
 'use client';
 
 import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 import type { Song } from '@/data/songs';
 import { hasLink, safeLink } from '@/data/links';
 import { PlayIcon, YoutubeIcon, ShareIcon } from '@/components/icons';
 
 export function SongCard({ song }: { song: Song }) {
+  const t = useTranslations('songCard');
+  const ts = useTranslations('songs');
+  const description = ts(song.slug);
   const [copied, setCopied] = useState(false);
   const hasSpotify = hasLink(song.spotifyUrl);
   const hasLyric = hasLink(song.lyricVideoUrl);
 
   async function handleShare() {
     const shareData = {
-      title: `Rico Samba — ${song.title}`,
-      text: `Ouça "${song.title}" de Rico Samba: ${song.description}`,
+      title: t('shareTitle', { title: song.title }),
+      text: t('shareText', { title: song.title, description }),
       url: typeof window !== 'undefined' ? `${window.location.origin}/#lancamentos` : '',
     };
     try {
@@ -35,7 +39,7 @@ export function SongCard({ song }: { song: Song }) {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={song.cover}
-          alt={`Capa da música ${song.title}`}
+          alt={t('coverAlt', { title: song.title })}
           loading="lazy"
           className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
@@ -49,7 +53,7 @@ export function SongCard({ song }: { song: Song }) {
 
       <div className="flex flex-1 flex-col p-5">
         <h3 className="font-display text-xl font-semibold text-creme">{song.title}</h3>
-        <p className="mt-2 flex-1 text-sm leading-relaxed text-creme/60">{song.description}</p>
+        <p className="mt-2 flex-1 text-sm leading-relaxed text-creme/60">{description}</p>
 
         <div className="mt-5 flex flex-wrap items-center gap-2">
           <a
@@ -64,7 +68,7 @@ export function SongCard({ song }: { song: Song }) {
             }`}
           >
             <PlayIcon className="h-3.5 w-3.5" />
-            Ouvir
+            {t('listen')}
           </a>
           <a
             href={safeLink(song.lyricVideoUrl)}
@@ -78,16 +82,16 @@ export function SongCard({ song }: { song: Song }) {
             }`}
           >
             <YoutubeIcon className="h-3.5 w-3.5" />
-            Lyric video
+            {t('lyricVideo')}
           </a>
           <button
             type="button"
             onClick={handleShare}
             className="ml-auto inline-flex items-center gap-1.5 rounded-full p-2 text-creme/60 transition-colors hover:text-dourado"
-            aria-label={`Compartilhar ${song.title}`}
+            aria-label={t('shareAria', { title: song.title })}
           >
             <ShareIcon className="h-4 w-4" />
-            {copied && <span className="text-xs">Copiado!</span>}
+            {copied && <span className="text-xs">{t('copied')}</span>}
           </button>
         </div>
       </div>

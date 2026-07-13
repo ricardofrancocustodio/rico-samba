@@ -1,23 +1,20 @@
 'use client';
 
 import { useState, type FormEvent } from 'react';
+import { useTranslations } from 'next-intl';
 import { Reveal } from '@/components/Reveal';
 import { socialPlatforms } from '@/data/platforms';
 import { socialLinks, safeLink, hasLink } from '@/data/links';
 import { EmailIcon, ArrowRightIcon } from '@/components/icons';
 
-const subjects = [
-  'Show/evento',
-  'Parceria',
-  'Imprensa',
-  'Playlist/curadoria',
-  'Outro',
-];
+const subjectKeys = ['show', 'partnership', 'press', 'playlist', 'other'] as const;
 
 const inputClass =
   'w-full rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm text-creme placeholder:text-creme/40 transition-colors focus:border-dourado/60 focus:outline-none focus:ring-1 focus:ring-dourado/40';
 
 export function ContactSection() {
+  const t = useTranslations('contact');
+  const subjects = subjectKeys.map((key) => t(`subjects.${key}`));
   const [subject, setSubject] = useState(subjects[0]);
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -31,10 +28,10 @@ export function ContactSection() {
 
     const to = hasLink(socialLinks.email) ? socialLinks.email : '';
     const body = [
-      `Nome: ${name}`,
-      `E-mail: ${email}`,
-      whatsapp ? `WhatsApp: ${whatsapp}` : null,
-      `Assunto: ${subject}`,
+      `${t('mailName')}: ${name}`,
+      `${t('mailEmail')}: ${email}`,
+      whatsapp ? `${t('mailWhatsapp')}: ${whatsapp}` : null,
+      `${t('mailSubject')}: ${subject}`,
       '',
       message,
     ]
@@ -53,10 +50,10 @@ export function ContactSection() {
       <div className="container-x">
         <div className="grid gap-12 lg:grid-cols-2">
           <Reveal>
-            <p className="section-label">Contato</p>
-            <h2 className="heading-2">Vamos conversar</h2>
+            <p className="section-label">{t('label')}</p>
+            <h2 className="heading-2">{t('title')}</h2>
             <p className="mt-4 max-w-md text-lg text-creme/70">
-              Para shows, parcerias, imprensa, playlists e projetos especiais, envie uma mensagem.
+              {t('subtitle')}
             </p>
 
             <div className="mt-8 space-y-4">
@@ -103,28 +100,28 @@ export function ContactSection() {
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
                   <label htmlFor="name" className="mb-1.5 block text-xs font-medium text-creme/60">
-                    Nome
+                    {t('name')}
                   </label>
-                  <input id="name" name="name" required autoComplete="name" className={inputClass} placeholder="Seu nome" />
+                  <input id="name" name="name" required autoComplete="name" className={inputClass} placeholder={t('namePlaceholder')} />
                 </div>
                 <div>
                   <label htmlFor="email" className="mb-1.5 block text-xs font-medium text-creme/60">
-                    E-mail
+                    {t('email')}
                   </label>
-                  <input id="email" name="email" type="email" required autoComplete="email" className={inputClass} placeholder="voce@email.com" />
+                  <input id="email" name="email" type="email" required autoComplete="email" className={inputClass} placeholder={t('emailPlaceholder')} />
                 </div>
               </div>
 
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
                   <label htmlFor="whatsapp" className="mb-1.5 block text-xs font-medium text-creme/60">
-                    WhatsApp <span className="text-creme/40">(opcional)</span>
+                    {t('whatsapp')} <span className="text-creme/40">{t('optional')}</span>
                   </label>
-                  <input id="whatsapp" name="whatsapp" type="tel" autoComplete="tel" className={inputClass} placeholder="(00) 00000-0000" />
+                  <input id="whatsapp" name="whatsapp" type="tel" autoComplete="tel" className={inputClass} placeholder={t('whatsappPlaceholder')} />
                 </div>
                 <div>
                   <label htmlFor="subject" className="mb-1.5 block text-xs font-medium text-creme/60">
-                    Assunto
+                    {t('subject')}
                   </label>
                   <select
                     id="subject"
@@ -144,7 +141,7 @@ export function ContactSection() {
 
               <div>
                 <label htmlFor="message" className="mb-1.5 block text-xs font-medium text-creme/60">
-                  Mensagem
+                  {t('message')}
                 </label>
                 <textarea
                   id="message"
@@ -152,16 +149,16 @@ export function ContactSection() {
                   required
                   rows={5}
                   className={`${inputClass} resize-none`}
-                  placeholder="Conte um pouco sobre o convite, evento ou parceria..."
+                  placeholder={t('messagePlaceholder')}
                 />
               </div>
 
               <button type="submit" className="btn-primary w-full">
-                Enviar mensagem
+                {t('submit')}
                 <ArrowRightIcon className="h-4 w-4" />
               </button>
               <p className="text-center text-xs text-creme/40">
-                Ao enviar, seu aplicativo de e-mail será aberto com a mensagem pronta.
+                {t('note')}
               </p>
             </form>
           </Reveal>

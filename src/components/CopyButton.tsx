@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 import { CopyIcon, CheckIcon } from '@/components/icons';
 
 /**
@@ -9,13 +10,15 @@ import { CopyIcon, CheckIcon } from '@/components/icons';
  */
 export function CopyButton({
   text,
-  label = 'Copiar',
+  label,
   className = '',
 }: {
   text: string;
   label?: string;
   className?: string;
 }) {
+  const t = useTranslations('copyButton');
+  const copyLabel = label ?? t('copy');
   const [copied, setCopied] = useState(false);
 
   async function handleCopy() {
@@ -33,10 +36,10 @@ export function CopyButton({
       type="button"
       onClick={handleCopy}
       className={`inline-flex items-center gap-1.5 rounded-full border border-dourado/40 px-3.5 py-1.5 text-xs font-semibold text-dourado transition-colors hover:bg-dourado/10 ${className}`}
-      aria-label={label}
+      aria-label={copyLabel}
     >
       {copied ? <CheckIcon className="h-3.5 w-3.5" /> : <CopyIcon className="h-3.5 w-3.5" />}
-      {copied ? 'Copiado!' : label}
+      {copied ? t('copied') : copyLabel}
     </button>
   );
 }

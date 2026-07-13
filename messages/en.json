@@ -1,0 +1,357 @@
+{
+  "meta": {
+    "localeName": "English",
+    "switchLabel": "Change language",
+    "ptLabel": "Português",
+    "enLabel": "English"
+  },
+  "nav": {
+    "inicio": "Home",
+    "lancamentos": "Releases",
+    "videos": "Videos",
+    "sobre": "About",
+    "epk": "EPK / Booking",
+    "contato": "Contact"
+  },
+  "header": {
+    "listen": "Listen now"
+  },
+  "hero": {
+    "label": "Original Brazilian music",
+    "subtitle": "Samba, bossa, choro and modern pagode in songs about love, longing and new beginnings.",
+    "badgeNew": "New project:",
+    "projectName": "Jeito de Sambar",
+    "listenPlatforms": "Listen on the platforms",
+    "watchYoutube": "Watch on YouTube",
+    "knowSongs": "Discover the songs",
+    "explore": "Explore",
+    "scrollAria": "Scroll down"
+  },
+  "listen": {
+    "label": "Listen now",
+    "title": "Listen to Rico Samba",
+    "subtitle": "Pick your favorite platform and follow the releases wherever you already listen to music.",
+    "listenNow": "Listen now",
+    "soon": "Coming soon"
+  },
+  "releases": {
+    "label": "Releases",
+    "title": "Discography",
+    "subtitle": "Songs that turn stories of love, longing and new beginnings into modern samba."
+  },
+  "songCard": {
+    "coverAlt": "Cover of the song {title}",
+    "listen": "Listen",
+    "lyricVideo": "Lyric video",
+    "shareAria": "Share {title}",
+    "copied": "Copied!",
+    "shareTitle": "Rico Samba — {title}",
+    "shareText": "Listen to \"{title}\" by Rico Samba: {description}"
+  },
+  "songs": {
+    "voce": "A romantic, heartfelt song about presence, memory and desire.",
+    "doce-amor": "An intimate romantic samba, full of passion and remembrance.",
+    "armadilhas-do-amor": "A song about the conflicts, illusions and emotional games of a relationship.",
+    "mais-voce": "A song about choice, emotional dependence and the fear of losing the one you love.",
+    "amor-e-razao": "A track about the clash between feeling and reason.",
+    "fala-na-cara": "A samba with attitude about honesty, courage and putting an end to mind games.",
+    "brigas": "A song about wear, pride and conflict within a relationship.",
+    "saudade": "A song about accepting the end, missing someone and choosing not to reach out again."
+  },
+  "album": {
+    "label": "New project",
+    "titlePrefix": "Jeito de",
+    "titleHighlight": "Sambar",
+    "imgAlt": "Artwork for the Jeito de Sambar project",
+    "p1": "An original project by Rico Samba bringing together samba, bossa, modern pagode, choro and MPB in songs about love, longing, meetings, farewells and new beginnings.",
+    "p2": "Each track reveals a piece of this universe: the ache of missing someone, the courage to say goodbye, the wish to stay and the honesty of singing what you live.",
+    "cta1": "Follow the releases",
+    "cta2": "Subscribe on YouTube"
+  },
+  "video": {
+    "label": "Videos and lyrics",
+    "title": "Lyric videos",
+    "subtitle": "Watch the lyric videos, special versions and behind-the-scenes of Rico Samba's songs.",
+    "watchChannel": "Visit the YouTube channel",
+    "soon": "Coming soon",
+    "watchAria": "Watch {title}",
+    "soonAria": "{title} coming soon",
+    "lyricVideoLabel": "Lyric video"
+  },
+  "lyrics": {
+    "label": "Lyrics that become stories",
+    "title": "Feelings so many people live",
+    "subtitle": "Rico Samba's songs speak of longing, arguments, love, pride, farewells and the will to start over."
+  },
+  "about": {
+    "label": "About",
+    "title": "A samba all your own",
+    "imgAlt": "Rico Samba in a musical setting",
+    "p1": "Rico Samba is an original Brazilian music project that blends samba, bossa, choro, modern pagode and MPB in songs about love, longing, meetings and farewells.",
+    "p2": "With direct, heartfelt lyrics, Rico Samba turns relationship stories into music to sing, remember and share.",
+    "p3": "The project was born from the desire to create a modern, romantic, Brazilian samba — with guitar, percussion, memorable melodies and one simple truth: everyone has a samba all their own.",
+    "traits": ["Samba", "Bossa", "Choro", "Modern pagode", "MPB"]
+  },
+  "agenda": {
+    "label": "Schedule",
+    "title": "Shows and performances",
+    "subtitle": "Dates and performances by Rico Samba are coming soon. Bookers, producers and press will find official materials, show formats and the technical rider in the press kit.",
+    "epkCta": "EPK / Book Rico Samba",
+    "inviteCta": "Send an invitation"
+  },
+  "contact": {
+    "label": "Contact",
+    "title": "Let's talk",
+    "subtitle": "For shows, partnerships, press, playlists and special projects, send a message.",
+    "subjects": {
+      "show": "Show/event",
+      "partnership": "Partnership",
+      "press": "Press",
+      "playlist": "Playlist/curation",
+      "other": "Other"
+    },
+    "name": "Name",
+    "namePlaceholder": "Your name",
+    "email": "E-mail",
+    "emailPlaceholder": "you@email.com",
+    "whatsapp": "WhatsApp",
+    "optional": "(optional)",
+    "whatsappPlaceholder": "+1 (000) 000-0000",
+    "subject": "Subject",
+    "message": "Message",
+    "messagePlaceholder": "Tell us a bit about the invitation, event or partnership...",
+    "submit": "Send message",
+    "note": "On submit, your e-mail app will open with the message ready to send.",
+    "mailName": "Name",
+    "mailEmail": "E-mail",
+    "mailWhatsapp": "WhatsApp",
+    "mailSubject": "Subject"
+  },
+  "footer": {
+    "description": "Rico Samba — original Brazilian music. Samba, bossa, choro and modern pagode in songs about love, longing and new beginnings.",
+    "navHeading": "Navigation",
+    "navAria": "Footer",
+    "followHeading": "Listen and follow",
+    "rights": "© {year} Rico Samba. All rights reserved.",
+    "madeIn": "Made with <heart></heart> in Brazil."
+  },
+  "copyButton": {
+    "copy": "Copy",
+    "copied": "Copied!"
+  },
+  "logo": {
+    "tagline": "Original Brazilian music"
+  },
+  "stageMap": {
+    "aria": "Stage map: vocals and guitar at the center, percussion on the right, bass on the left, monitors up front and the audience below.",
+    "stage": "STAGE",
+    "bass": "Bass",
+    "left": "left",
+    "vocal": "Vocals",
+    "guitar": "& Guitar",
+    "percussion": "Percussion",
+    "right": "right",
+    "monitors": "front monitors",
+    "audience": "▲ AUDIENCE ▲"
+  },
+  "epk": {
+    "breadcrumbAria": "Breadcrumb",
+    "home": "Home",
+    "breadcrumbCurrent": "EPK / Booking",
+    "heroLabel": "Official Press Kit",
+    "heroTitle": "EPK / Book",
+    "heroTitleHighlight": "Rico Samba",
+    "heroSubtitle": "Official materials for bookers, producers and press: biography, releases, photos, show formats, technical rider and professional contact.",
+    "hireShow": "Book a show",
+    "officialDownloads": "Official downloads",
+    "shortBioHeading": "Short bio",
+    "longBioHeading": "Full bio",
+    "shortBio": "Rico Samba is an original samba project blending samba, bossa, choro, modern pagode and Brazilian MPB. With lyrics about love, longing, meetings and farewells, the artist presents a heartfelt, popular repertoire with a Brazilian identity and a contemporary voice.",
+    "longBio": [
+      "Rico Samba is an original Brazilian music project born from the desire to create a modern, romantic and heartfelt samba that speaks to today's audience without losing its roots. The sound blends samba, bossa, choro, modern pagode and MPB, always with the swing of the samba circle as its starting point.",
+      "The lyrics speak of relationships: love, longing, desire, arguments, reconciliation, pride and new beginnings. They are direct, heartfelt stories, made to sing, remember and share — from the intimacy of a solo guitar to the energy of a samba circle.",
+      "The original repertoire includes songs such as “Você”, “Doce Amor”, “Armadilhas do Amor”, “Mais Você”, “Amor e Razão”, “Fala na Cara”, “Brigas” and “Saudade”, all part of the Jeito de Sambar project — a body of work that gathers meetings and farewells into a modern, intimate and Brazilian samba.",
+      "More than songs, Rico Samba offers an experience: recognizing, in each song, a piece of your own story. Everyone has a samba all their own."
+    ],
+    "digitalLabel": "Digital presence",
+    "digitalTitle": "Where to find Rico Samba",
+    "digitalSubtitle": "Official presence across the main music, video, lyrics and social platforms.",
+    "officialProfile": "Official profile",
+    "soon": "Coming soon",
+    "portfolioLabel": "Music portfolio",
+    "portfolioTitle": "Original repertoire",
+    "portfolioSubtitle": "Released and upcoming songs, with direct access to platforms, lyric videos and lyrics.",
+    "songCoverAlt": "Cover of {title}",
+    "lyricVideo": "Lyric video",
+    "formatsLabel": "Show options",
+    "formatsTitle": "Performance formats",
+    "formatsSubtitle": "Flexible formats that adapt to your event, from intimate to upbeat.",
+    "idealFor": "Ideal for:",
+    "riderLabel": "Technical rider",
+    "riderTitle": "Performance setup",
+    "riderSubtitle": "Basic requirements per format. A detailed PDF version can be sent on request.",
+    "stageMapHeading": "Stage map",
+    "stageMapNote": "Suggested layout for the small-band format.",
+    "photosLabel": "Official photos",
+    "photosTitle": "Images for promotion",
+    "photosSubtitle": "Horizontal, vertical and square photos. Request the high-resolution files in the downloads area.",
+    "releasesLabel": "Press releases",
+    "releasesTitle": "Ready-to-use press texts",
+    "releasesSubtitle": "Copy and use freely in articles, cultural listings and promotion.",
+    "mediaLabel": "In the media",
+    "mediaTitle": "Clipping in progress",
+    "mediaSubtitle": "Articles, interviews, podcasts, playlists and mentions will be gathered here as the project grows. For features and interviews, get in touch.",
+    "downloadsLabel": "Downloads",
+    "downloadsTitle": "Official files",
+    "downloadsSubtitle": "Materials for download. Items marked “coming soon” will be made available shortly.",
+    "proContactLabel": "Professional contact",
+    "proContactTitle": "Request a quote",
+    "proContactSubtitle": "Fill in the event details and the team will get back to you with availability and pricing.",
+    "bio": {
+      "shortLabel": "Short bio",
+      "longLabel": "Full bio"
+    },
+    "showFormats": {
+      "voz-violao": {
+        "title": "Voice & Guitar",
+        "description": "An intimate format with voice and guitar, focused on original songs and classics of samba, bossa and MPB.",
+        "ideal": "Bars, restaurants, private events, receptions and smaller venues."
+      },
+      "samba-bossa-pagode": {
+        "title": "Samba / Bossa / Modern Pagode",
+        "description": "A performance with accompaniment or a small band, uniting original songs and the swing of modern samba.",
+        "ideal": "Music venues, cultural events and parties with dancing."
+      },
+      "roda": {
+        "title": "Rico Samba Circle",
+        "description": "An upbeat samba-circle format, with original songs plus samba, pagode and MPB classics for the audience to sing along.",
+        "ideal": "Samba circles, open-air events and get-togethers."
+      },
+      "pocket": {
+        "title": "Pocket Show",
+        "description": "A short, versatile performance, adaptable to the event's time and space.",
+        "ideal": "Corporate events, launches, get-togethers and cultural events."
+      }
+    },
+    "riders": {
+      "voz-violao": {
+        "title": "Rider — Voice & Guitar",
+        "items": [
+          "1 vocal microphone with stand",
+          "1 DI input for guitar",
+          "1 monitor wedge",
+          "PA suited to the venue",
+          "Power outlet near the stage",
+          "Armless stool or chair, if needed"
+        ]
+      },
+      "banda-reduzida": {
+        "title": "Rider — Small band",
+        "items": [
+          "1 vocal microphone with stand",
+          "1 input for guitar / cavaquinho",
+          "Percussion miking (pandeiro, surdo, tantã)",
+          "1 channel for bass, if present",
+          "Monitor wedges for each musician",
+          "Mixing console and PA suited to the audience",
+          "Stage map sent in advance"
+        ]
+      }
+    },
+    "releaseItems": {
+      "artista": {
+        "title": "Artist release",
+        "text": "Rico Samba is an original samba project blending samba, bossa, choro, modern pagode and Brazilian MPB. With lyrics about love, longing, meetings and farewells, it presents a heartfelt, popular repertoire with a Brazilian identity and a contemporary voice. The project turns relationship stories into songs made to sing, remember and share."
+      },
+      "album": {
+        "title": "Album release “Jeito de Sambar”",
+        "text": "With the Jeito de Sambar project, Rico Samba presents an original repertoire uniting romance, Brazilian spirit and a contemporary sound. The songs speak of relationships, farewells, arguments, longing and desire, always with the swing of samba as the starting point. An intimate, Brazilian body of work, made for those who live music as memory, circle and feeling."
+      },
+      "single": {
+        "title": "Current single release",
+        "text": "Rico Samba presents the new single, another chapter of the Jeito de Sambar project. The track brings together the artist's sensitive, romantic lyrics and the swing of modern samba, in a song about love, longing and new beginnings. Available on the main music platforms."
+      },
+      "curto": {
+        "title": "Short release (Instagram / cultural listing)",
+        "text": "Rico Samba — original samba blending bossa, choro, modern pagode and MPB, with lyrics about love, longing and new beginnings. The Jeito de Sambar project."
+      }
+    },
+    "downloadItems": {
+      "epk-pdf": {
+        "label": "Full EPK (PDF)",
+        "description": "A professional presentation in a single file."
+      },
+      "fotos": {
+        "label": "Official photos",
+        "description": "High-resolution images for promotion."
+      },
+      "logo": {
+        "label": "Rico Samba logo",
+        "description": "SVG version with a transparent background."
+      },
+      "rider": {
+        "label": "Technical rider",
+        "description": "Specifications per show format."
+      },
+      "release": {
+        "label": "Official release",
+        "description": "Ready-to-use press texts."
+      }
+    },
+    "pressPhotos": {
+      "hero": "Rico Samba in a stage setting — horizontal photo",
+      "sobre": "Rico Samba with guitar — vertical photo",
+      "capa": "Artwork for the Jeito de Sambar project — square photo"
+    }
+  },
+  "proForm": {
+    "heading": "Booking and press",
+    "subtitle": "Talk directly with Rico Samba's team for shows, events, partnerships and press.",
+    "whatsappLabel": "Business WhatsApp",
+    "whatsappMessage": "Hi! I'd like to talk about a Rico Samba performance.",
+    "name": "Name",
+    "namePlaceholder": "Your name",
+    "company": "Company / event",
+    "companyPlaceholder": "Event or company name",
+    "city": "City",
+    "cityPlaceholder": "City / state",
+    "date": "Preferred date",
+    "optional": "(optional)",
+    "eventType": "Event type",
+    "format": "Preferred format",
+    "message": "Message",
+    "messagePlaceholder": "Tell us about the event, expected audience, available setup...",
+    "submit": "Request a quote",
+    "note": "On submit, your e-mail app will open with the message ready to send.",
+    "eventTypes": {
+      "show": "Show / event",
+      "corporate": "Corporate event",
+      "wedding": "Wedding / reception",
+      "bar": "Bar / restaurant",
+      "cultural": "Cultural event",
+      "press": "Press",
+      "other": "Other"
+    },
+    "mailName": "Name",
+    "mailCompany": "Company / event",
+    "mailCity": "City",
+    "mailDate": "Preferred date",
+    "mailEventType": "Event type",
+    "mailFormat": "Preferred format",
+    "mailSubjectPrefix": "[Booking]"
+  },
+  "metadata": {
+    "home": {
+      "title": "Rico Samba — Samba, Bossa, Choro and Modern Pagode",
+      "description": "Official site of Rico Samba. Original samba with influences of bossa, choro, modern pagode and MPB. Listen to songs, watch lyric videos and follow the Jeito de Sambar project.",
+      "ogTitle": "Rico Samba — Original Brazilian Music",
+      "ogDescription": "Samba, bossa, choro and modern pagode in songs about love, longing and new beginnings."
+    },
+    "epk": {
+      "title": "EPK / Book Rico Samba — Press Kit",
+      "description": "Official press kit for Rico Samba: bio, releases, photos, logos, show formats, technical rider and booking & press contact.",
+      "ogTitle": "EPK / Book Rico Samba",
+      "ogDescription": "Bio, releases, photos, show formats, technical rider and professional contact."
+    }
+  }
+}

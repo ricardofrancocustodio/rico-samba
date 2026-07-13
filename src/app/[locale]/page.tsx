@@ -1,3 +1,4 @@
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Header } from '@/components/Header';
 import { Hero } from '@/components/Hero';
 import { ListenNow } from '@/components/ListenNow';
@@ -20,18 +21,26 @@ const sameAs = [
   socialLinks.appleMusic,
 ].filter(hasLink);
 
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'MusicGroup',
-  name: 'Rico Samba',
-  genre: ['Samba', 'Bossa Nova', 'Choro', 'Pagode', 'MPB'],
-  description:
-    'Projeto de música brasileira autoral que mistura samba, bossa, choro, pagode moderno e MPB em canções sobre amor, saudade e recomeço.',
-  url: 'https://ricosamba.com.br',
-  ...(sameAs.length > 0 ? { sameAs } : {}),
-};
+export default async function Home({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
 
-export default function Home() {
+  const t = await getTranslations({ locale, namespace: 'metadata.home' });
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'MusicGroup',
+    name: 'Rico Samba',
+    genre: ['Samba', 'Bossa Nova', 'Choro', 'Pagode', 'MPB'],
+    description: t('description'),
+    url: 'https://ricosamba.com.br',
+    ...(sameAs.length > 0 ? { sameAs } : {}),
+  };
+
   return (
     <>
       <script

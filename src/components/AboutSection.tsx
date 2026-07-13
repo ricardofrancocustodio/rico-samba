@@ -1,8 +1,9 @@
+import { useTranslations } from 'next-intl';
 import { Reveal } from '@/components/Reveal';
 
-const traits = ['Samba', 'Bossa', 'Choro', 'Pagode moderno', 'MPB'];
-
 export function AboutSection() {
+  const t = useTranslations('about');
+  const traits = t.raw('traits') as string[];
   return (
     <section id="sobre" className="relative scroll-mt-20 py-20 sm:py-28">
       <div className="container-x">
@@ -12,7 +13,7 @@ export function AboutSection() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/images/artist/rico-samba-sobre.svg"
-                alt="Rico Samba em ambiente musical"
+                alt={t('imgAlt')}
                 className="w-full rounded-2xl shadow-soft ring-1 ring-white/10"
               />
               <div className="absolute -left-4 -top-4 -z-10 h-full w-full rounded-2xl border border-dourado/30" />
@@ -20,23 +21,13 @@ export function AboutSection() {
           </Reveal>
 
           <Reveal delay={120}>
-            <p className="section-label">Sobre</p>
-            <h2 className="heading-2">Um jeito próprio de sambar</h2>
+            <p className="section-label">{t('label')}</p>
+            <h2 className="heading-2">{t('title')}</h2>
 
             <div className="mt-6 space-y-4 text-lg leading-relaxed text-creme/75">
-              <p>
-                Rico Samba é um projeto de música brasileira autoral que mistura samba, bossa,
-                choro, pagode moderno e MPB em canções sobre amor, saudade, encontros e despedidas.
-              </p>
-              <p>
-                Com letras diretas e sentimentais, Rico Samba transforma histórias de
-                relacionamento em música para cantar, lembrar e compartilhar.
-              </p>
-              <p className="text-creme/60">
-                O projeto nasce da vontade de criar um samba atual, romântico e brasileiro, com
-                violão, percussão, melodias marcantes e uma verdade simples: todo mundo tem um jeito
-                próprio de sambar.
-              </p>
+              <p>{t('p1')}</p>
+              <p>{t('p2')}</p>
+              <p className="text-creme/60">{t('p3')}</p>
             </div>
 
             <ul className="mt-8 flex flex-wrap gap-2.5">

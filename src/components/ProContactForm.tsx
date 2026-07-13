@@ -1,19 +1,20 @@
 'use client';
 
 import { useState, type FormEvent } from 'react';
+import { useTranslations } from 'next-intl';
 import { socialLinks, hasLink, whatsappLink } from '@/data/links';
-import { showFormats } from '@/data/epk';
+import { showFormatIds } from '@/data/epk';
 import { EmailIcon, WhatsappIcon, ArrowRightIcon } from '@/components/icons';
 
-const eventTypes = [
-  'Show / evento',
-  'Evento corporativo',
-  'Casamento / recepção',
-  'Bar / restaurante',
-  'Evento cultural',
-  'Imprensa',
-  'Outro',
-];
+const eventTypeKeys = [
+  'show',
+  'corporate',
+  'wedding',
+  'bar',
+  'cultural',
+  'press',
+  'other',
+] as const;
 
 const inputClass =
   'w-full rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm text-creme placeholder:text-creme/40 transition-colors focus:border-dourado/60 focus:outline-none focus:ring-1 focus:ring-dourado/40';
@@ -21,22 +22,28 @@ const inputClass =
 const labelClass = 'mb-1.5 block text-xs font-medium text-creme/60';
 
 export function ProContactForm() {
-  const [eventType, setEventType] = useState(eventTypes[0]);
-  const [format, setFormat] = useState(showFormats[0].title);
-  const wa = whatsappLink('Olá! Gostaria de falar sobre uma apresentação de Rico Samba.');
+  const t = useTranslations('proForm');
+  const tf = useTranslations('epk.showFormats');
+
+  const [eventType, setEventType] = useState<string>(eventTypeKeys[0]);
+  const [formatId, setFormatId] = useState<string>(showFormatIds[0]);
+  const wa = whatsappLink(t('whatsappMessage'));
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     const get = (key: string) => String(data.get(key) ?? '').trim();
 
+    const eventTypeLabel = t(`eventTypes.${eventType}`);
+    const formatLabel = tf(`${formatId}.title`);
+
     const body = [
-      `Nome: ${get('name')}`,
-      `Empresa / evento: ${get('company')}`,
-      `Cidade: ${get('city')}`,
-      get('date') ? `Data desejada: ${get('date')}` : null,
-      `Tipo de evento: ${eventType}`,
-      `Formato desejado: ${format}`,
+      `${t('mailName')}: ${get('name')}`,
+      `${t('mailCompany')}: ${get('company')}`,
+      `${t('mailCity')}: ${get('city')}`,
+      get('date') ? `${t('mailDate')}: ${get('date')}` : null,
+      `${t('mailEventType')}: ${eventTypeLabel}`,
+      `${t('mailFormat')}: ${formatLabel}`,
       '',
       get('message'),
     ]
@@ -48,7 +55,7 @@ export function ProContactForm() {
       : socialLinks.email;
 
     const mailto = `mailto:${to}?subject=${encodeURIComponent(
-      `[Contratação] ${eventType} — ${get('name')}`,
+      `${t('mailSubjectPrefix')} ${eventTypeLabel} — ${get('name')}`,
     )}&body=${encodeURIComponent(body)}`;
 
     window.location.href = mailto;
@@ -58,10 +65,10 @@ export function ProContactForm() {
     <div className="grid gap-10 lg:grid-cols-[1fr_1.15fr]">
       <div>
         <h3 className="font-display text-2xl font-semibold text-creme">
-          Contratação e imprensa
+          {t('heading')}
         </h3>
         <p className="mt-3 max-w-md text-creme/70">
-          Fale diretamente com a produção de Rico Samba para shows, eventos, parcerias e imprensa.
+          {t('subtitle')}
         </p>
 
         <div className="mt-6 space-y-3">
@@ -89,7 +96,7 @@ export function ProContactForm() {
               <span className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5">
                 <WhatsappIcon className="h-5 w-5" />
               </span>
-              <span className="font-medium">WhatsApp comercial</span>
+              <span className="font-medium">{t('whatsappLabel')}</span>
             </a>
           )}
         </div>
@@ -98,23 +105,23 @@ export function ProContactForm() {
       <form onSubmit={handleSubmit} className="card-surface space-y-4 p-6 sm:p-8">
         <div className="grid gap-4 sm:grid-cols-2">
           <div>
-            <label htmlFor="pro-name" className={labelClass}>Nome</label>
-            <input id="pro-name" name="name" required autoComplete="name" className={inputClass} placeholder="Seu nome" />
+            <label htmlFor="pro-name" className={labelClass}>{t('name')}</label>
+            <input id="pro-name" name="name" required autoComplete="name" className={inputClass} placeholder={t('namePlaceholder')} />
           </div>
           <div>
-            <label htmlFor="pro-company" className={labelClass}>Empresa / evento</label>
-            <input id="pro-company" name="company" className={inputClass} placeholder="Nome do evento ou empresa" />
+            <label htmlFor="pro-company" className={labelClass}>{t('company')}</label>
+            <input id="pro-company" name="company" className={inputClass} placeholder={t('companyPlaceholder')} />
           </div>
         </div>
 
         <div className="grid gap-4 sm:grid-cols-2">
           <div>
-            <label htmlFor="pro-city" className={labelClass}>Cidade</label>
-            <input id="pro-city" name="city" required className={inputClass} placeholder="Cidade / estado" />
+            <label htmlFor="pro-city" className={labelClass}>{t('city')}</label>
+            <input id="pro-city" name="city" required className={inputClass} placeholder={t('cityPlaceholder')} />
           </div>
           <div>
             <label htmlFor="pro-date" className={labelClass}>
-              Data desejada <span className="text-creme/40">(opcional)</span>
+              {t('date')} <span className="text-creme/40">{t('optional')}</span>
             </label>
             <input id="pro-date" name="date" type="date" className={inputClass} />
           </div>
@@ -122,7 +129,7 @@ export function ProContactForm() {
 
         <div className="grid gap-4 sm:grid-cols-2">
           <div>
-            <label htmlFor="pro-type" className={labelClass}>Tipo de evento</label>
+            <label htmlFor="pro-type" className={labelClass}>{t('eventType')}</label>
             <select
               id="pro-type"
               name="type"
@@ -130,25 +137,25 @@ export function ProContactForm() {
               onChange={(e) => setEventType(e.target.value)}
               className={`${inputClass} appearance-none`}
             >
-              {eventTypes.map((option) => (
-                <option key={option} value={option} className="bg-grafite text-creme">
-                  {option}
+              {eventTypeKeys.map((key) => (
+                <option key={key} value={key} className="bg-grafite text-creme">
+                  {t(`eventTypes.${key}`)}
                 </option>
               ))}
             </select>
           </div>
           <div>
-            <label htmlFor="pro-format" className={labelClass}>Formato desejado</label>
+            <label htmlFor="pro-format" className={labelClass}>{t('format')}</label>
             <select
               id="pro-format"
               name="format"
-              value={format}
-              onChange={(e) => setFormat(e.target.value)}
+              value={formatId}
+              onChange={(e) => setFormatId(e.target.value)}
               className={`${inputClass} appearance-none`}
             >
-              {showFormats.map((option) => (
-                <option key={option.title} value={option.title} className="bg-grafite text-creme">
-                  {option.title}
+              {showFormatIds.map((id) => (
+                <option key={id} value={id} className="bg-grafite text-creme">
+                  {tf(`${id}.title`)}
                 </option>
               ))}
             </select>
@@ -156,23 +163,23 @@ export function ProContactForm() {
         </div>
 
         <div>
-          <label htmlFor="pro-message" className={labelClass}>Mensagem</label>
+          <label htmlFor="pro-message" className={labelClass}>{t('message')}</label>
           <textarea
             id="pro-message"
             name="message"
             required
             rows={4}
             className={`${inputClass} resize-none`}
-            placeholder="Conte sobre o evento, público esperado, estrutura disponível..."
+            placeholder={t('messagePlaceholder')}
           />
         </div>
 
         <button type="submit" className="btn-primary w-full">
-          Solicitar proposta
+          {t('submit')}
           <ArrowRightIcon className="h-4 w-4" />
         </button>
         <p className="text-center text-xs text-creme/40">
-          Ao enviar, seu aplicativo de e-mail será aberto com a mensagem pronta.
+          {t('note')}
         </p>
       </form>
     </div>

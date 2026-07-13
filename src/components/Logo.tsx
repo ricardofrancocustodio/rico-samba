@@ -1,8 +1,11 @@
+import { useTranslations } from 'next-intl';
+
 /**
  * Logo tipográfico de Rico Samba com um pandeiro estilizado.
  * Escala conforme o tamanho da fonte do container.
  */
 export function Logo({ className = '', showTagline = false }: { className?: string; showTagline?: boolean }) {
+  const t = useTranslations('logo');
   return (
     <span className={`inline-flex items-center gap-2.5 ${className}`}>
       <PandeiroMark className="h-9 w-9 shrink-0 text-dourado" />
@@ -12,7 +15,7 @@ export function Logo({ className = '', showTagline = false }: { className?: stri
         </span>
         {showTagline && (
           <span className="mt-1 text-[10px] font-medium uppercase tracking-[0.3em] text-creme/50">
-            Música brasileira autoral
+            {t('tagline')}
           </span>
         )}
       </span>

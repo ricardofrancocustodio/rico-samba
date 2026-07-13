@@ -1,0 +1,357 @@
+{
+  "meta": {
+    "localeName": "Português",
+    "switchLabel": "Mudar idioma",
+    "ptLabel": "Português",
+    "enLabel": "English"
+  },
+  "nav": {
+    "inicio": "Início",
+    "lancamentos": "Lançamentos",
+    "videos": "Vídeos",
+    "sobre": "Sobre",
+    "epk": "EPK / Contrate",
+    "contato": "Contato"
+  },
+  "header": {
+    "listen": "Ouvir agora"
+  },
+  "hero": {
+    "label": "Música brasileira autoral",
+    "subtitle": "Samba, bossa, choro e pagode moderno em canções sobre amor, saudade e recomeço.",
+    "badgeNew": "Novo projeto:",
+    "projectName": "Jeito de Sambar",
+    "listenPlatforms": "Ouvir nas plataformas",
+    "watchYoutube": "Assistir no YouTube",
+    "knowSongs": "Conhecer as músicas",
+    "explore": "Explorar",
+    "scrollAria": "Rolar para baixo"
+  },
+  "listen": {
+    "label": "Ouça agora",
+    "title": "Ouça Rico Samba",
+    "subtitle": "Escolha sua plataforma preferida e acompanhe os lançamentos onde você já ouve música.",
+    "listenNow": "Ouvir agora",
+    "soon": "Em breve"
+  },
+  "releases": {
+    "label": "Lançamentos",
+    "title": "Discografia",
+    "subtitle": "Canções que transformam histórias de amor, saudade e recomeço em samba moderno."
+  },
+  "songCard": {
+    "coverAlt": "Capa da música {title}",
+    "listen": "Ouvir",
+    "lyricVideo": "Lyric video",
+    "shareAria": "Compartilhar {title}",
+    "copied": "Copiado!",
+    "shareTitle": "Rico Samba — {title}",
+    "shareText": "Ouça \"{title}\" de Rico Samba: {description}"
+  },
+  "songs": {
+    "voce": "Canção romântica e afetiva sobre presença, memória e desejo.",
+    "doce-amor": "Samba romântico de clima íntimo, com sentimento de paixão e lembrança.",
+    "armadilhas-do-amor": "Música sobre os conflitos, ilusões e jogos emocionais de uma relação.",
+    "mais-voce": "Canção sobre escolha, dependência afetiva e medo de perder quem se ama.",
+    "amor-e-razao": "Faixa sobre o embate entre sentimento e lucidez.",
+    "fala-na-cara": "Samba com atitude sobre sinceridade, coragem e fim de joguinhos emocionais.",
+    "brigas": "Música sobre desgaste, orgulho e conflitos dentro de uma relação.",
+    "saudade": "Canção sobre aceitar o fim, sentir falta e decidir não procurar mais."
+  },
+  "album": {
+    "label": "Novo projeto",
+    "titlePrefix": "Jeito de",
+    "titleHighlight": "Sambar",
+    "imgAlt": "Arte do projeto Jeito de Sambar",
+    "p1": "Um projeto autoral de Rico Samba que reúne samba, bossa, pagode moderno, choro e MPB em músicas sobre amor, saudade, encontros, despedidas e recomeços.",
+    "p2": "Cada faixa revela um pedaço desse universo: a dor de quem sente falta, a coragem de dizer adeus, o desejo de ficar e a verdade de quem canta o que vive.",
+    "cta1": "Acompanhar lançamentos",
+    "cta2": "Inscrever-se no YouTube"
+  },
+  "video": {
+    "label": "Vídeos e letras",
+    "title": "Lyric videos",
+    "subtitle": "Assista aos lyric videos, versões especiais e bastidores das músicas de Rico Samba.",
+    "watchChannel": "Ver canal no YouTube",
+    "soon": "Em breve",
+    "watchAria": "Assistir {title}",
+    "soonAria": "{title} em breve",
+    "lyricVideoLabel": "Lyric video"
+  },
+  "lyrics": {
+    "label": "Letras que viram histórias",
+    "title": "Sentimentos que muita gente vive",
+    "subtitle": "As músicas de Rico Samba falam de saudade, briga, amor, orgulho, despedida e vontade de recomeçar."
+  },
+  "about": {
+    "label": "Sobre",
+    "title": "Um jeito próprio de sambar",
+    "imgAlt": "Rico Samba em ambiente musical",
+    "p1": "Rico Samba é um projeto de música brasileira autoral que mistura samba, bossa, choro, pagode moderno e MPB em canções sobre amor, saudade, encontros e despedidas.",
+    "p2": "Com letras diretas e sentimentais, Rico Samba transforma histórias de relacionamento em música para cantar, lembrar e compartilhar.",
+    "p3": "O projeto nasce da vontade de criar um samba atual, romântico e brasileiro, com violão, percussão, melodias marcantes e uma verdade simples: todo mundo tem um jeito próprio de sambar.",
+    "traits": ["Samba", "Bossa", "Choro", "Pagode moderno", "MPB"]
+  },
+  "agenda": {
+    "label": "Agenda",
+    "title": "Shows e apresentações",
+    "subtitle": "Em breve, datas e apresentações de Rico Samba. Contratantes, produtores e imprensa encontram materiais oficiais, formatos de show e rider técnico no press kit.",
+    "epkCta": "EPK / Contrate Rico Samba",
+    "inviteCta": "Fazer um convite"
+  },
+  "contact": {
+    "label": "Contato",
+    "title": "Vamos conversar",
+    "subtitle": "Para shows, parcerias, imprensa, playlists e projetos especiais, envie uma mensagem.",
+    "subjects": {
+      "show": "Show/evento",
+      "partnership": "Parceria",
+      "press": "Imprensa",
+      "playlist": "Playlist/curadoria",
+      "other": "Outro"
+    },
+    "name": "Nome",
+    "namePlaceholder": "Seu nome",
+    "email": "E-mail",
+    "emailPlaceholder": "voce@email.com",
+    "whatsapp": "WhatsApp",
+    "optional": "(opcional)",
+    "whatsappPlaceholder": "(00) 00000-0000",
+    "subject": "Assunto",
+    "message": "Mensagem",
+    "messagePlaceholder": "Conte um pouco sobre o convite, evento ou parceria...",
+    "submit": "Enviar mensagem",
+    "note": "Ao enviar, seu aplicativo de e-mail será aberto com a mensagem pronta.",
+    "mailName": "Nome",
+    "mailEmail": "E-mail",
+    "mailWhatsapp": "WhatsApp",
+    "mailSubject": "Assunto"
+  },
+  "footer": {
+    "description": "Rico Samba — música brasileira autoral. Samba, bossa, choro e pagode moderno em canções sobre amor, saudade e recomeço.",
+    "navHeading": "Navegação",
+    "navAria": "Rodapé",
+    "followHeading": "Ouça e siga",
+    "rights": "© {year} Rico Samba. Todos os direitos reservados.",
+    "madeIn": "Feito com <heart></heart> no Brasil."
+  },
+  "copyButton": {
+    "copy": "Copiar",
+    "copied": "Copiado!"
+  },
+  "logo": {
+    "tagline": "Música brasileira autoral"
+  },
+  "stageMap": {
+    "aria": "Mapa de palco: vocal e violão ao centro, percussão à direita, baixo à esquerda, retornos à frente e público abaixo.",
+    "stage": "PALCO",
+    "bass": "Baixo",
+    "left": "esquerda",
+    "vocal": "Vocal",
+    "guitar": "e Violão",
+    "percussion": "Percussão",
+    "right": "direita",
+    "monitors": "retornos frontais",
+    "audience": "▲ PÚBLICO ▲"
+  },
+  "epk": {
+    "breadcrumbAria": "Trilha de navegação",
+    "home": "Início",
+    "breadcrumbCurrent": "EPK / Contrate",
+    "heroLabel": "Press Kit oficial",
+    "heroTitle": "EPK / Contrate",
+    "heroTitleHighlight": "Rico Samba",
+    "heroSubtitle": "Materiais oficiais para contratantes, produtores e imprensa: biografia, releases, fotos, formatos de show, rider técnico e contato profissional.",
+    "hireShow": "Contratar show",
+    "officialDownloads": "Downloads oficiais",
+    "shortBioHeading": "Bio curta",
+    "longBioHeading": "Bio completa",
+    "shortBio": "Rico Samba é um projeto de samba autoral que mistura samba, bossa, choro, pagode moderno e MPB brasileira. Com letras sobre amor, saudade, encontros e despedidas, o artista apresenta um repertório afetivo e popular, com identidade brasileira e linguagem contemporânea.",
+    "longBio": [
+      "Rico Samba é um projeto de música brasileira autoral nascido da vontade de criar um samba atual, romântico e afetivo, que conversa com o público de hoje sem perder a raiz. A sonoridade combina samba, bossa, choro, pagode moderno e MPB, sempre com o balanço da roda como ponto de partida.",
+      "As letras falam de relacionamentos: amor, saudade, desejo, brigas, reconciliação, orgulho e recomeço. São histórias diretas e sentimentais, feitas para cantar, lembrar e compartilhar — do clima intimista de um violão à energia de uma roda de samba.",
+      "O repertório autoral reúne canções como “Você”, “Doce Amor”, “Armadilhas do Amor”, “Mais Você”, “Amor e Razão”, “Fala na Cara”, “Brigas” e “Saudade”, todas parte do projeto Jeito de Sambar, um trabalho que reúne encontros e despedidas em um samba moderno, íntimo e brasileiro.",
+      "Mais do que músicas, Rico Samba propõe uma experiência: a de reconhecer, em cada canção, um pedaço da própria história. Todo mundo tem um jeito próprio de sambar."
+    ],
+    "digitalLabel": "Presença digital",
+    "digitalTitle": "Onde encontrar Rico Samba",
+    "digitalSubtitle": "Presença oficial nas principais plataformas de música, vídeo, letras e redes sociais.",
+    "officialProfile": "Perfil oficial",
+    "soon": "Em breve",
+    "portfolioLabel": "Portfólio musical",
+    "portfolioTitle": "Repertório autoral",
+    "portfolioSubtitle": "Músicas lançadas e em campanha, com acesso direto às plataformas, lyric videos e letras.",
+    "songCoverAlt": "Capa de {title}",
+    "lyricVideo": "Lyric video",
+    "formatsLabel": "Propostas de show",
+    "formatsTitle": "Formatos de apresentação",
+    "formatsSubtitle": "Formatos flexíveis que se adaptam ao seu evento, do intimista ao animado.",
+    "idealFor": "Ideal para:",
+    "riderLabel": "Rider técnico",
+    "riderTitle": "Estrutura para apresentação",
+    "riderSubtitle": "Requisitos básicos por formato. Uma versão detalhada em PDF pode ser enviada sob demanda.",
+    "stageMapHeading": "Mapa de palco",
+    "stageMapNote": "Disposição sugerida para o formato com banda reduzida.",
+    "photosLabel": "Fotos oficiais",
+    "photosTitle": "Imagens para divulgação",
+    "photosSubtitle": "Fotos horizontais, verticais e quadradas. Solicite os arquivos em alta resolução na área de downloads.",
+    "releasesLabel": "Releases",
+    "releasesTitle": "Textos prontos para imprensa",
+    "releasesSubtitle": "Copie e utilize livremente em matérias, agendas culturais e divulgação.",
+    "mediaLabel": "Na mídia",
+    "mediaTitle": "Clipping em construção",
+    "mediaSubtitle": "Matérias, entrevistas, podcasts, playlists e menções serão reunidos aqui conforme o projeto cresce. Para pautas e entrevistas, entre em contato.",
+    "downloadsLabel": "Downloads",
+    "downloadsTitle": "Arquivos oficiais",
+    "downloadsSubtitle": "Materiais para download. Itens marcados como “em breve” serão disponibilizados em seguida.",
+    "proContactLabel": "Contato profissional",
+    "proContactTitle": "Solicite uma proposta",
+    "proContactSubtitle": "Preencha os dados do evento e a produção retornará com disponibilidade e valores.",
+    "bio": {
+      "shortLabel": "Bio curta",
+      "longLabel": "Bio completa"
+    },
+    "showFormats": {
+      "voz-violao": {
+        "title": "Voz e Violão",
+        "description": "Formato intimista com voz e violão, focado no repertório autoral e em clássicos do samba, bossa e MPB.",
+        "ideal": "Bares, restaurantes, eventos privados, recepções e ambientes menores."
+      },
+      "samba-bossa-pagode": {
+        "title": "Samba / Bossa / Pagode Moderno",
+        "description": "Apresentação com acompanhamento ou banda reduzida, unindo repertório autoral e o balanço do samba moderno.",
+        "ideal": "Casas de show, eventos culturais e festas com dança."
+      },
+      "roda": {
+        "title": "Roda Rico Samba",
+        "description": "Formato animado em roda, com repertório autoral somado a clássicos do samba, pagode e MPB para o público cantar junto.",
+        "ideal": "Rodas de samba, eventos ao ar livre e confraternizações."
+      },
+      "pocket": {
+        "title": "Pocket Show",
+        "description": "Apresentação curta e versátil, adaptável ao tempo e ao espaço do evento.",
+        "ideal": "Eventos corporativos, lançamentos, confraternizações e eventos culturais."
+      }
+    },
+    "riders": {
+      "voz-violao": {
+        "title": "Rider — Voz e Violão",
+        "items": [
+          "1 microfone vocal com pedestal",
+          "1 entrada (DI) para violão",
+          "1 monitor de retorno",
+          "PA adequado ao ambiente",
+          "Tomada de energia próxima ao palco",
+          "Banco ou cadeira sem braços, se necessário"
+        ]
+      },
+      "banda-reduzida": {
+        "title": "Rider — Banda reduzida",
+        "items": [
+          "1 microfone vocal com pedestal",
+          "1 entrada para violão / cavaco",
+          "Microfonação de percussão (pandeiro, surdo, tantã)",
+          "1 canal para baixo, se houver",
+          "Monitores de retorno para cada músico",
+          "Mesa de som e PA compatíveis com o público",
+          "Mapa de palco enviado previamente"
+        ]
+      }
+    },
+    "releaseItems": {
+      "artista": {
+        "title": "Release do artista",
+        "text": "Rico Samba é um projeto de samba autoral que mistura samba, bossa, choro, pagode moderno e MPB brasileira. Com letras sobre amor, saudade, encontros e despedidas, apresenta um repertório afetivo e popular, com identidade brasileira e linguagem contemporânea. O projeto transforma histórias de relacionamento em canções feitas para cantar, lembrar e compartilhar."
+      },
+      "album": {
+        "title": "Release do álbum “Jeito de Sambar”",
+        "text": "Com o projeto Jeito de Sambar, Rico Samba apresenta um repertório autoral que une romantismo, brasilidade e sonoridade contemporânea. As músicas falam de relacionamentos, despedidas, brigas, saudade e desejo, sempre com o balanço do samba como ponto de partida. Um trabalho íntimo e brasileiro, feito para quem vive a música como memória, roda e sentimento."
+      },
+      "single": {
+        "title": "Release do single atual",
+        "text": "Rico Samba apresenta seu novo single, mais um capítulo do projeto Jeito de Sambar. A faixa reúne a sensibilidade das letras românticas do artista ao balanço do samba moderno, em uma canção sobre amor, saudade e recomeço. Disponível nas principais plataformas de música."
+      },
+      "curto": {
+        "title": "Release curto (Instagram / agenda cultural)",
+        "text": "Rico Samba — samba autoral que mistura bossa, choro, pagode moderno e MPB, com letras sobre amor, saudade e recomeço. Projeto Jeito de Sambar."
+      }
+    },
+    "downloadItems": {
+      "epk-pdf": {
+        "label": "EPK completo (PDF)",
+        "description": "Apresentação profissional em um único arquivo."
+      },
+      "fotos": {
+        "label": "Fotos oficiais",
+        "description": "Imagens em alta resolução para divulgação."
+      },
+      "logo": {
+        "label": "Logo Rico Samba",
+        "description": "Versão em SVG com fundo transparente."
+      },
+      "rider": {
+        "label": "Rider técnico",
+        "description": "Especificações por formato de show."
+      },
+      "release": {
+        "label": "Release oficial",
+        "description": "Textos prontos para imprensa."
+      }
+    },
+    "pressPhotos": {
+      "hero": "Rico Samba em ambiente de palco — foto horizontal",
+      "sobre": "Rico Samba com violão — foto vertical",
+      "capa": "Arte do projeto Jeito de Sambar — foto quadrada"
+    }
+  },
+  "proForm": {
+    "heading": "Contratação e imprensa",
+    "subtitle": "Fale diretamente com a produção de Rico Samba para shows, eventos, parcerias e imprensa.",
+    "whatsappLabel": "WhatsApp comercial",
+    "whatsappMessage": "Olá! Gostaria de falar sobre uma apresentação de Rico Samba.",
+    "name": "Nome",
+    "namePlaceholder": "Seu nome",
+    "company": "Empresa / evento",
+    "companyPlaceholder": "Nome do evento ou empresa",
+    "city": "Cidade",
+    "cityPlaceholder": "Cidade / estado",
+    "date": "Data desejada",
+    "optional": "(opcional)",
+    "eventType": "Tipo de evento",
+    "format": "Formato desejado",
+    "message": "Mensagem",
+    "messagePlaceholder": "Conte sobre o evento, público esperado, estrutura disponível...",
+    "submit": "Solicitar proposta",
+    "note": "Ao enviar, seu aplicativo de e-mail será aberto com a mensagem pronta.",
+    "eventTypes": {
+      "show": "Show / evento",
+      "corporate": "Evento corporativo",
+      "wedding": "Casamento / recepção",
+      "bar": "Bar / restaurante",
+      "cultural": "Evento cultural",
+      "press": "Imprensa",
+      "other": "Outro"
+    },
+    "mailName": "Nome",
+    "mailCompany": "Empresa / evento",
+    "mailCity": "Cidade",
+    "mailDate": "Data desejada",
+    "mailEventType": "Tipo de evento",
+    "mailFormat": "Formato desejado",
+    "mailSubjectPrefix": "[Contratação]"
+  },
+  "metadata": {
+    "home": {
+      "title": "Rico Samba — Samba, Bossa, Choro e Pagode Moderno",
+      "description": "Site oficial de Rico Samba. Samba autoral com influências de bossa, choro, pagode moderno e MPB. Ouça músicas, assista lyric videos e acompanhe o projeto Jeito de Sambar.",
+      "ogTitle": "Rico Samba — Música Brasileira Autoral",
+      "ogDescription": "Samba, bossa, choro e pagode moderno em canções sobre amor, saudade e recomeço."
+    },
+    "epk": {
+      "title": "EPK / Contrate Rico Samba — Press Kit",
+      "description": "Press kit oficial de Rico Samba: bio, releases, fotos, logos, formatos de show, rider técnico e contato para contratação e imprensa.",
+      "ogTitle": "EPK / Contrate Rico Samba",
+      "ogDescription": "Bio, releases, fotos, formatos de show, rider técnico e contato profissional."
+    }
+  }
+}

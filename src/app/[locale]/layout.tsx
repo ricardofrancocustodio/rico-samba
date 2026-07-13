@@ -1,6 +1,10 @@
 import type { Metadata, Viewport } from 'next';
+import { notFound } from 'next/navigation';
+import { NextIntlClientProvider, hasLocale } from 'next-intl';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Playfair_Display, Inter, Parisienne } from 'next/font/google';
-import './globals.css';
+import { routing } from '@/i18n/routing';
+import '../globals.css';
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -25,66 +29,81 @@ const parisienne = Parisienne({
 
 const siteUrl = 'https://ricosamba.com.br';
 
-export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
-  title: {
-    default: 'Rico Samba — Samba, Bossa, Choro e Pagode Moderno',
-    template: '%s | Rico Samba',
-  },
-  description:
-    'Site oficial de Rico Samba. Samba autoral com influências de bossa, choro, pagode moderno e MPB. Ouça músicas, assista lyric videos e acompanhe o projeto Jeito de Sambar.',
-  keywords: [
-    'Rico Samba',
-    'samba autoral',
-    'samba romântico',
-    'pagode moderno',
-    'samba bossa',
-    'música brasileira',
-    'choro moderno',
-    'MPB brasileira',
-    'Jeito de Sambar',
-    'lyric video samba',
-  ],
-  authors: [{ name: 'Rico Samba' }],
-  creator: 'Rico Samba',
-  alternates: {
-    canonical: siteUrl,
-  },
-  openGraph: {
-    type: 'website',
-    locale: 'pt_BR',
-    url: siteUrl,
-    siteName: 'Rico Samba',
-    title: 'Rico Samba — Música Brasileira Autoral',
-    description:
-      'Samba, bossa, choro e pagode moderno em canções sobre amor, saudade e recomeço.',
-    images: [
-      {
-        url: '/images/social/og-image.svg',
-        width: 1200,
-        height: 630,
-        alt: 'Rico Samba — Música Brasileira Autoral',
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'metadata.home' });
+
+  const isDefault = locale === routing.defaultLocale;
+  const canonical = isDefault ? siteUrl : `${siteUrl}/${locale}`;
+
+  return {
+    metadataBase: new URL(siteUrl),
+    title: {
+      default: t('title'),
+      template: '%s | Rico Samba',
+    },
+    description: t('description'),
+    keywords: [
+      'Rico Samba',
+      'samba autoral',
+      'samba romântico',
+      'pagode moderno',
+      'samba bossa',
+      'música brasileira',
+      'choro moderno',
+      'MPB brasileira',
+      'Jeito de Sambar',
+      'lyric video samba',
+    ],
+    authors: [{ name: 'Rico Samba' }],
+    creator: 'Rico Samba',
+    alternates: {
+      canonical,
+      languages: {
+        'pt-BR': siteUrl,
+        en: `${siteUrl}/en`,
       },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Rico Samba — Música Brasileira Autoral',
-    description:
-      'Samba, bossa, choro e pagode moderno em canções sobre amor, saudade e recomeço.',
-    images: ['/images/social/og-image.svg'],
-  },
-  icons: {
-    icon: [
-      { url: '/favicon.svg', type: 'image/svg+xml' },
-    ],
-    apple: [{ url: '/favicon.svg' }],
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
-};
+    },
+    openGraph: {
+      type: 'website',
+      locale: locale === 'en' ? 'en_US' : 'pt_BR',
+      url: canonical,
+      siteName: 'Rico Samba',
+      title: t('ogTitle'),
+      description: t('ogDescription'),
+      images: [
+        {
+          url: '/images/social/og-image.svg',
+          width: 1200,
+          height: 630,
+          alt: t('ogTitle'),
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: t('ogTitle'),
+      description: t('ogDescription'),
+      images: ['/images/social/og-image.svg'],
+    },
+    icons: {
+      icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
+      apple: [{ url: '/favicon.svg' }],
+    },
+    robots: {
+      index: true,
+      follow: true,
+    },
+  };
+}
 
 export const viewport: Viewport = {
   themeColor: '#0E0B0A',
@@ -92,14 +111,28 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-export default function RootLayout({
+export default async function LocaleLayout({
   children,
+  params,
 }: {
   children: React.ReactNode;
+  params: Promise<{ locale: string }>;
 }) {
+  const { locale } = await params;
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
+
+  setRequestLocale(locale);
+
   return (
-    <html lang="pt-BR" className={`${playfair.variable} ${inter.variable} ${parisienne.variable}`}>
-      <body>{children}</body>
+    <html
+      lang={locale === 'en' ? 'en' : 'pt-BR'}
+      className={`${playfair.variable} ${inter.variable} ${parisienne.variable}`}
+    >
+      <body>
+        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+      </body>
     </html>
   );
 }

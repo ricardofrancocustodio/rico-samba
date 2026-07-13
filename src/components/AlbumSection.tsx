@@ -1,8 +1,10 @@
+import { useTranslations } from 'next-intl';
 import { Reveal } from '@/components/Reveal';
 import { ArrowRightIcon, YoutubeIcon } from '@/components/icons';
 import { socialLinks, safeLink, hasLink } from '@/data/links';
 
 export function AlbumSection() {
+  const t = useTranslations('album');
   return (
     <section className="relative overflow-hidden py-20 sm:py-28">
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-transparent via-vinho/10 to-transparent" />
@@ -13,7 +15,7 @@ export function AlbumSection() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/images/covers/jeito-de-sambar.svg"
-                alt="Arte do projeto Jeito de Sambar"
+                alt={t('imgAlt')}
                 className="w-full rounded-2xl shadow-soft ring-1 ring-white/10"
               />
               <div className="absolute -bottom-4 -right-4 -z-10 h-full w-full rounded-2xl bg-gold-gradient opacity-20 blur-xl" />
@@ -21,17 +23,15 @@ export function AlbumSection() {
           </Reveal>
 
           <Reveal delay={120}>
-            <p className="section-label">Novo projeto</p>
+            <p className="section-label">{t('label')}</p>
             <h2 className="font-display text-4xl font-bold text-creme sm:text-5xl">
-              Jeito de <span className="text-gold-gradient">Sambar</span>
+              {t('titlePrefix')} <span className="text-gold-gradient">{t('titleHighlight')}</span>
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-creme/75">
-              Um projeto autoral de Rico Samba que reúne samba, bossa, pagode moderno, choro e MPB
-              em músicas sobre amor, saudade, encontros, despedidas e recomeços.
+              {t('p1')}
             </p>
             <p className="mt-4 leading-relaxed text-creme/60">
-              Cada faixa revela um pedaço desse universo: a dor de quem sente falta, a coragem de
-              dizer adeus, o desejo de ficar e a verdade de quem canta o que vive.
+              {t('p2')}
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -41,7 +41,7 @@ export function AlbumSection() {
                 rel={hasLink(socialLinks.smartLink) ? 'noopener noreferrer' : undefined}
                 className="btn-primary"
               >
-                Acompanhar lançamentos
+                {t('cta1')}
                 <ArrowRightIcon className="h-4 w-4" />
               </a>
               <a
@@ -51,7 +51,7 @@ export function AlbumSection() {
                 className="btn-secondary"
               >
                 <YoutubeIcon className="h-4 w-4" />
-                Inscrever-se no YouTube
+                {t('cta2')}
               </a>
             </div>
           </Reveal>

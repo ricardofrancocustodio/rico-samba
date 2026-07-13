@@ -1,18 +1,21 @@
-import Link from 'next/link';
+import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/navigation';
 import { Logo } from '@/components/Logo';
 import { streamingPlatforms, socialPlatforms, externalPlatforms } from '@/data/platforms';
 import { safeLink, hasLink } from '@/data/links';
 
-const navItems = [
-  { label: 'Início', href: '/#inicio' },
-  { label: 'Lançamentos', href: '/#lancamentos' },
-  { label: 'Vídeos', href: '/#videos' },
-  { label: 'Sobre', href: '/#sobre' },
-  { label: 'EPK / Contrate', href: '/epk' },
-  { label: 'Contato', href: '/#contato' },
-];
+const navKeys = [
+  { key: 'inicio', href: '/#inicio' },
+  { key: 'lancamentos', href: '/#lancamentos' },
+  { key: 'videos', href: '/#videos' },
+  { key: 'sobre', href: '/#sobre' },
+  { key: 'epk', href: '/epk' },
+  { key: 'contato', href: '/#contato' },
+] as const;
 
 export function Footer() {
+  const t = useTranslations('footer');
+  const tn = useTranslations('nav');
   const year = new Date().getFullYear();
   const platforms = [...socialPlatforms, ...streamingPlatforms, ...externalPlatforms].filter(
     (platform, index, list) => list.findIndex((p) => p.name === platform.name) === index,
@@ -25,23 +28,22 @@ export function Footer() {
           <div>
             <Logo showTagline />
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-creme/60">
-              Rico Samba — música brasileira autoral. Samba, bossa, choro e pagode moderno em
-              canções sobre amor, saudade e recomeço.
+              {t('description')}
             </p>
           </div>
 
-          <nav aria-label="Rodapé">
+          <nav aria-label={t('navAria')}>
             <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-creme/50">
-              Navegação
+              {t('navHeading')}
             </h3>
             <ul className="mt-4 space-y-2.5">
-              {navItems.map((item) => (
+              {navKeys.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
                     className="text-sm text-creme/70 transition-colors hover:text-dourado"
                   >
-                    {item.label}
+                    {tn(item.key)}
                   </Link>
                 </li>
               ))}
@@ -50,7 +52,7 @@ export function Footer() {
 
           <div>
             <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-creme/50">
-              Ouça e siga
+              {t('followHeading')}
             </h3>
             <div className="mt-4 flex flex-wrap gap-2.5">
               {platforms.map((platform) => {
@@ -81,10 +83,12 @@ export function Footer() {
 
         <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-white/5 pt-6 sm:flex-row">
           <p className="text-xs text-creme/50">
-            © {year} Rico Samba. Todos os direitos reservados.
+            {t('rights', { year })}
           </p>
           <p className="text-xs text-creme/40">
-            Feito com <span className="text-dourado">♪</span> no Brasil.
+            {t.rich('madeIn', {
+              heart: () => <span className="text-dourado">♪</span>,
+            })}
           </p>
         </div>
       </div>

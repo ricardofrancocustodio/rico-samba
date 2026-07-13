@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
+import { Link } from '@/i18n/navigation';
+import { routing } from '@/i18n/routing';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { Reveal } from '@/components/Reveal';
@@ -7,11 +9,9 @@ import { CopyButton } from '@/components/CopyButton';
 import { ProContactForm } from '@/components/ProContactForm';
 import { StageMap } from '@/components/StageMap';
 import {
-  shortBio,
-  longBio,
-  releases,
-  showFormats,
-  riders,
+  releaseIds,
+  showFormatIds,
+  riderIds,
   downloads,
   pressPhotos,
 } from '@/data/epk';
@@ -26,18 +26,35 @@ import {
   ArrowRightIcon,
 } from '@/components/icons';
 
-export const metadata: Metadata = {
-  title: 'EPK / Contrate Rico Samba — Press Kit',
-  description:
-    'Press kit oficial de Rico Samba: bio, releases, fotos, logos, formatos de show, rider técnico e contato para contratação e imprensa.',
-  alternates: { canonical: 'https://ricosamba.com.br/epk' },
-  openGraph: {
-    title: 'EPK / Contrate Rico Samba',
-    description:
-      'Bio, releases, fotos, formatos de show, rider técnico e contato profissional.',
-    url: 'https://ricosamba.com.br/epk',
-  },
-};
+const siteUrl = 'https://ricosamba.com.br';
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'metadata.epk' });
+  const isDefault = locale === routing.defaultLocale;
+  const canonical = isDefault ? `${siteUrl}/epk` : `${siteUrl}/${locale}/epk`;
+
+  return {
+    title: t('title'),
+    description: t('description'),
+    alternates: {
+      canonical,
+      languages: {
+        'pt-BR': `${siteUrl}/epk`,
+        en: `${siteUrl}/en/epk`,
+      },
+    },
+    openGraph: {
+      title: t('ogTitle'),
+      description: t('ogDescription'),
+      url: canonical,
+    },
+  };
+}
 
 const ratioClass: Record<string, string> = {
   landscape: 'aspect-video',
@@ -45,7 +62,19 @@ const ratioClass: Record<string, string> = {
   square: 'aspect-square',
 };
 
-export default function EpkPage() {
+export default async function EpkPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
+  const t = await getTranslations({ locale, namespace: 'epk' });
+  const ts = await getTranslations({ locale, namespace: 'songs' });
+
+  const longBio = t.raw('longBio') as string[];
+
   return (
     <>
       <Header />
@@ -55,29 +84,28 @@ export default function EpkPage() {
           <div className="absolute inset-0 -z-10 bg-radial-warm" />
           <div className="container-x">
             <Reveal>
-              <nav className="mb-6 flex items-center gap-2 text-sm text-creme/50" aria-label="Trilha de navegação">
+              <nav className="mb-6 flex items-center gap-2 text-sm text-creme/50" aria-label={t('breadcrumbAria')}>
                 <Link href="/" className="transition-colors hover:text-dourado">
-                  Início
+                  {t('home')}
                 </Link>
                 <span>/</span>
-                <span className="text-creme/80">EPK / Contrate</span>
+                <span className="text-creme/80">{t('breadcrumbCurrent')}</span>
               </nav>
-              <p className="section-label">Press Kit oficial</p>
+              <p className="section-label">{t('heroLabel')}</p>
               <h1 className="font-display text-4xl font-bold leading-tight text-creme sm:text-6xl">
-                EPK / Contrate <span className="text-gold-gradient">Rico Samba</span>
+                {t('heroTitle')} <span className="text-gold-gradient">{t('heroTitleHighlight')}</span>
               </h1>
               <p className="mt-5 max-w-2xl text-lg text-creme/75">
-                Materiais oficiais para contratantes, produtores e imprensa: biografia, releases,
-                fotos, formatos de show, rider técnico e contato profissional.
+                {t('heroSubtitle')}
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <a href="#contratar" className="btn-primary">
-                  Contratar show
+                  {t('hireShow')}
                   <ArrowRightIcon className="h-4 w-4" />
                 </a>
                 <a href="#downloads" className="btn-secondary">
                   <DownloadIcon className="h-4 w-4" />
-                  Downloads oficiais
+                  {t('officialDownloads')}
                 </a>
               </div>
             </Reveal>
@@ -90,17 +118,17 @@ export default function EpkPage() {
             <Reveal>
               <div className="card-surface h-full p-7 sm:p-8">
                 <div className="mb-4 flex items-center justify-between gap-4">
-                  <h2 className="font-display text-2xl font-semibold text-creme">Bio curta</h2>
-                  <CopyButton text={shortBio} />
+                  <h2 className="font-display text-2xl font-semibold text-creme">{t('shortBioHeading')}</h2>
+                  <CopyButton text={t('shortBio')} />
                 </div>
-                <p className="text-lg leading-relaxed text-creme/75">{shortBio}</p>
+                <p className="text-lg leading-relaxed text-creme/75">{t('shortBio')}</p>
               </div>
             </Reveal>
 
             <Reveal delay={100}>
               <div className="card-surface h-full p-7 sm:p-8">
                 <div className="mb-4 flex items-center justify-between gap-4">
-                  <h2 className="font-display text-2xl font-semibold text-creme">Bio completa</h2>
+                  <h2 className="font-display text-2xl font-semibold text-creme">{t('longBioHeading')}</h2>
                   <CopyButton text={longBio.join('\n\n')} />
                 </div>
                 <div className="space-y-4 leading-relaxed text-creme/70">
@@ -117,10 +145,10 @@ export default function EpkPage() {
         <section className="py-16 sm:py-20">
           <div className="container-x">
             <Reveal className="max-w-2xl">
-              <p className="section-label">Presença digital</p>
-              <h2 className="heading-2">Onde encontrar Rico Samba</h2>
+              <p className="section-label">{t('digitalLabel')}</p>
+              <h2 className="heading-2">{t('digitalTitle')}</h2>
               <p className="mt-4 text-creme/70">
-                Presença oficial nas principais plataformas de música, vídeo, letras e redes sociais.
+                {t('digitalSubtitle')}
               </p>
             </Reveal>
 
@@ -150,7 +178,7 @@ export default function EpkPage() {
                       <span className="flex flex-col">
                         <span className="text-sm font-medium text-creme">{platform.name}</span>
                         <span className="text-[11px] text-creme/50">
-                          {active ? 'Perfil oficial' : 'Em breve'}
+                          {active ? t('officialProfile') : t('soon')}
                         </span>
                       </span>
                     </a>
@@ -165,10 +193,10 @@ export default function EpkPage() {
         <section className="py-16 sm:py-20">
           <div className="container-x">
             <Reveal className="max-w-2xl">
-              <p className="section-label">Portfólio musical</p>
-              <h2 className="heading-2">Repertório autoral</h2>
+              <p className="section-label">{t('portfolioLabel')}</p>
+              <h2 className="heading-2">{t('portfolioTitle')}</h2>
               <p className="mt-4 text-creme/70">
-                Músicas lançadas e em campanha, com acesso direto às plataformas, lyric videos e letras.
+                {t('portfolioSubtitle')}
               </p>
             </Reveal>
 
@@ -183,7 +211,7 @@ export default function EpkPage() {
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src={song.cover}
-                        alt={`Capa de ${song.title}`}
+                        alt={t('songCoverAlt', { title: song.title })}
                         loading="lazy"
                         className="h-16 w-16 shrink-0 rounded-lg object-cover"
                       />
@@ -191,14 +219,14 @@ export default function EpkPage() {
                         <h3 className="font-display text-lg font-semibold text-creme">
                           {song.title}
                         </h3>
-                        <p className="text-sm text-creme/60">{song.description}</p>
+                        <p className="text-sm text-creme/60">{ts(song.slug)}</p>
                       </div>
                     </div>
 
                     <div className="flex flex-wrap gap-2 sm:justify-end">
                       <PortfolioLink url={song.spotifyUrl} label="Spotify" icon={<PlayIcon className="h-3.5 w-3.5" />} />
                       <PortfolioLink url={song.youtubeUrl} label="YouTube" icon={<YoutubeIcon className="h-3.5 w-3.5" />} />
-                      <PortfolioLink url={song.lyricVideoUrl} label="Lyric video" icon={<YoutubeIcon className="h-3.5 w-3.5" />} />
+                      <PortfolioLink url={song.lyricVideoUrl} label={t('lyricVideo')} icon={<YoutubeIcon className="h-3.5 w-3.5" />} />
                     </div>
                   </li>
                 ))}
@@ -211,23 +239,23 @@ export default function EpkPage() {
         <section id="contratar" className="scroll-mt-20 py-16 sm:py-20">
           <div className="container-x">
             <Reveal className="max-w-2xl">
-              <p className="section-label">Propostas de show</p>
-              <h2 className="heading-2">Formatos de apresentação</h2>
+              <p className="section-label">{t('formatsLabel')}</p>
+              <h2 className="heading-2">{t('formatsTitle')}</h2>
               <p className="mt-4 text-creme/70">
-                Formatos flexíveis que se adaptam ao seu evento, do intimista ao animado.
+                {t('formatsSubtitle')}
               </p>
             </Reveal>
 
             <div className="mt-10 grid gap-6 sm:grid-cols-2">
-              {showFormats.map((format, i) => (
-                <Reveal key={format.title} delay={(i % 2) * 90}>
+              {showFormatIds.map((id, i) => (
+                <Reveal key={id} delay={(i % 2) * 90}>
                   <article className="card-surface h-full p-7">
                     <h3 className="font-display text-xl font-semibold text-dourado">
-                      {format.title}
+                      {t(`showFormats.${id}.title`)}
                     </h3>
-                    <p className="mt-3 leading-relaxed text-creme/75">{format.description}</p>
+                    <p className="mt-3 leading-relaxed text-creme/75">{t(`showFormats.${id}.description`)}</p>
                     <p className="mt-4 text-sm text-creme/55">
-                      <span className="font-semibold text-creme/70">Ideal para:</span> {format.ideal}
+                      <span className="font-semibold text-creme/70">{t('idealFor')}</span> {t(`showFormats.${id}.ideal`)}
                     </p>
                   </article>
                 </Reveal>
@@ -240,37 +268,39 @@ export default function EpkPage() {
         <section className="py-16 sm:py-20">
           <div className="container-x">
             <Reveal className="max-w-2xl">
-              <p className="section-label">Rider técnico</p>
-              <h2 className="heading-2">Estrutura para apresentação</h2>
+              <p className="section-label">{t('riderLabel')}</p>
+              <h2 className="heading-2">{t('riderTitle')}</h2>
               <p className="mt-4 text-creme/70">
-                Requisitos básicos por formato. Uma versão detalhada em PDF pode ser enviada sob
-                demanda.
+                {t('riderSubtitle')}
               </p>
             </Reveal>
 
             <div className="mt-10 grid gap-6 lg:grid-cols-2">
-              {riders.map((rider, i) => (
-                <Reveal key={rider.title} delay={i * 90}>
-                  <article className="card-surface h-full p-7">
-                    <h3 className="font-display text-xl font-semibold text-creme">{rider.title}</h3>
-                    <ul className="mt-4 space-y-2.5">
-                      {rider.items.map((item) => (
-                        <li key={item} className="flex items-start gap-3 text-creme/75">
-                          <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-dourado" />
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </article>
-                </Reveal>
-              ))}
+              {riderIds.map((id, i) => {
+                const items = t.raw(`riders.${id}.items`) as string[];
+                return (
+                  <Reveal key={id} delay={i * 90}>
+                    <article className="card-surface h-full p-7">
+                      <h3 className="font-display text-xl font-semibold text-creme">{t(`riders.${id}.title`)}</h3>
+                      <ul className="mt-4 space-y-2.5">
+                        {items.map((item) => (
+                          <li key={item} className="flex items-start gap-3 text-creme/75">
+                            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-dourado" />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </article>
+                  </Reveal>
+                );
+              })}
             </div>
 
             <Reveal className="mt-6">
               <div className="card-surface p-7">
-                <h3 className="font-display text-xl font-semibold text-creme">Mapa de palco</h3>
+                <h3 className="font-display text-xl font-semibold text-creme">{t('stageMapHeading')}</h3>
                 <p className="mt-2 text-sm text-creme/60">
-                  Disposição sugerida para o formato com banda reduzida.
+                  {t('stageMapNote')}
                 </p>
                 <div className="mt-6">
                   <StageMap />
@@ -284,31 +314,33 @@ export default function EpkPage() {
         <section className="py-16 sm:py-20">
           <div className="container-x">
             <Reveal className="max-w-2xl">
-              <p className="section-label">Fotos oficiais</p>
-              <h2 className="heading-2">Imagens para divulgação</h2>
+              <p className="section-label">{t('photosLabel')}</p>
+              <h2 className="heading-2">{t('photosTitle')}</h2>
               <p className="mt-4 text-creme/70">
-                Fotos horizontais, verticais e quadradas. Solicite os arquivos em alta resolução na
-                área de downloads.
+                {t('photosSubtitle')}
               </p>
             </Reveal>
 
             <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {pressPhotos.map((photo, i) => (
-                <Reveal key={photo.src} delay={(i % 3) * 80}>
-                  <figure className="card-surface overflow-hidden">
-                    <div className={`${ratioClass[photo.ratio]} overflow-hidden`}>
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src={photo.src}
-                        alt={photo.alt}
-                        loading="lazy"
-                        className="h-full w-full object-cover"
-                      />
-                    </div>
-                    <figcaption className="px-4 py-3 text-xs text-creme/55">{photo.alt}</figcaption>
-                  </figure>
-                </Reveal>
-              ))}
+              {pressPhotos.map((photo, i) => {
+                const alt = t(`pressPhotos.${photo.id}`);
+                return (
+                  <Reveal key={photo.src} delay={(i % 3) * 80}>
+                    <figure className="card-surface overflow-hidden">
+                      <div className={`${ratioClass[photo.ratio]} overflow-hidden`}>
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={photo.src}
+                          alt={alt}
+                          loading="lazy"
+                          className="h-full w-full object-cover"
+                        />
+                      </div>
+                      <figcaption className="px-4 py-3 text-xs text-creme/55">{alt}</figcaption>
+                    </figure>
+                  </Reveal>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -317,24 +349,24 @@ export default function EpkPage() {
         <section className="py-16 sm:py-20">
           <div className="container-x">
             <Reveal className="max-w-2xl">
-              <p className="section-label">Releases</p>
-              <h2 className="heading-2">Textos prontos para imprensa</h2>
+              <p className="section-label">{t('releasesLabel')}</p>
+              <h2 className="heading-2">{t('releasesTitle')}</h2>
               <p className="mt-4 text-creme/70">
-                Copie e utilize livremente em matérias, agendas culturais e divulgação.
+                {t('releasesSubtitle')}
               </p>
             </Reveal>
 
             <div className="mt-10 grid gap-6 lg:grid-cols-2">
-              {releases.map((release, i) => (
-                <Reveal key={release.id} delay={(i % 2) * 90}>
+              {releaseIds.map((id, i) => (
+                <Reveal key={id} delay={(i % 2) * 90}>
                   <article className="card-surface flex h-full flex-col p-7">
                     <div className="mb-3 flex items-center justify-between gap-4">
                       <h3 className="font-display text-lg font-semibold text-dourado">
-                        {release.title}
+                        {t(`releaseItems.${id}.title`)}
                       </h3>
-                      <CopyButton text={release.text} />
+                      <CopyButton text={t(`releaseItems.${id}.text`)} />
                     </div>
-                    <p className="leading-relaxed text-creme/75">{release.text}</p>
+                    <p className="leading-relaxed text-creme/75">{t(`releaseItems.${id}.text`)}</p>
                   </article>
                 </Reveal>
               ))}
@@ -348,11 +380,10 @@ export default function EpkPage() {
             <Reveal>
               <div className="card-surface flex flex-col items-center gap-3 px-8 py-14 text-center">
                 <LetrasIcon className="h-8 w-8 text-dourado" />
-                <p className="section-label justify-center">Na mídia</p>
-                <h2 className="heading-2">Clipping em construção</h2>
+                <p className="section-label justify-center">{t('mediaLabel')}</p>
+                <h2 className="heading-2">{t('mediaTitle')}</h2>
                 <p className="mx-auto mt-2 max-w-xl text-creme/70">
-                  Matérias, entrevistas, podcasts, playlists e menções serão reunidos aqui conforme o
-                  projeto cresce. Para pautas e entrevistas, entre em contato.
+                  {t('mediaSubtitle')}
                 </p>
               </div>
             </Reveal>
@@ -363,11 +394,10 @@ export default function EpkPage() {
         <section id="downloads" className="scroll-mt-20 py-16 sm:py-20">
           <div className="container-x">
             <Reveal className="max-w-2xl">
-              <p className="section-label">Downloads</p>
-              <h2 className="heading-2">Arquivos oficiais</h2>
+              <p className="section-label">{t('downloadsLabel')}</p>
+              <h2 className="heading-2">{t('downloadsTitle')}</h2>
               <p className="mt-4 text-creme/70">
-                Materiais para download. Itens marcados como “em breve” serão disponibilizados em
-                seguida.
+                {t('downloadsSubtitle')}
               </p>
             </Reveal>
 
@@ -375,7 +405,7 @@ export default function EpkPage() {
               {downloads.map((item, i) => {
                 const available = hasLink(item.href);
                 return (
-                  <Reveal key={item.label} delay={(i % 3) * 70}>
+                  <Reveal key={item.id} delay={(i % 3) * 70}>
                     <a
                       href={available ? item.href : undefined}
                       download={available || undefined}
@@ -390,9 +420,9 @@ export default function EpkPage() {
                         <DownloadIcon className="h-5 w-5" />
                       </span>
                       <span className="flex flex-col">
-                        <span className="font-medium text-creme">{item.label}</span>
+                        <span className="font-medium text-creme">{t(`downloadItems.${item.id}.label`)}</span>
                         <span className="text-xs text-creme/55">
-                          {available ? item.description : 'Em breve'}
+                          {available ? t(`downloadItems.${item.id}.description`) : t('soon')}
                         </span>
                       </span>
                     </a>
@@ -407,10 +437,10 @@ export default function EpkPage() {
         <section id="contratar-form" className="scroll-mt-20 py-16 sm:py-24">
           <div className="container-x">
             <Reveal className="max-w-2xl">
-              <p className="section-label">Contato profissional</p>
-              <h2 className="heading-2">Solicite uma proposta</h2>
+              <p className="section-label">{t('proContactLabel')}</p>
+              <h2 className="heading-2">{t('proContactTitle')}</h2>
               <p className="mt-4 text-creme/70">
-                Preencha os dados do evento e a produção retornará com disponibilidade e valores.
+                {t('proContactSubtitle')}
               </p>
             </Reveal>
 
