@@ -13,8 +13,8 @@ interface PlayerModalProps {
 
 function toEmbedUrl(url: string, type: PlayerType): string {
   if (type === 'spotify') {
-    // https://open.spotify.com/track/TRACKID → embed
-    const match = url.match(/spotify\.com\/(track|album|playlist)\/([A-Za-z0-9]+)/);
+    // https://open.spotify.com/[intl-xx/](track|album|playlist)/ID → embed
+    const match = url.match(/spotify\.com\/(?:[a-z-]+\/)?(track|album|playlist)\/([A-Za-z0-9]+)/);
     if (match) return `https://open.spotify.com/embed/${match[1]}/${match[2]}?utm_source=generator&theme=0`;
     return url;
   }
