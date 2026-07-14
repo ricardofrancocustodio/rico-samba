@@ -3,6 +3,7 @@ import { Link } from '@/i18n/navigation';
 import { Logo } from '@/components/Logo';
 import { streamingPlatforms, socialPlatforms, externalPlatforms } from '@/data/platforms';
 import { safeLink, hasLink } from '@/data/links';
+import { AiDisclaimerButton } from '@/components/AiDisclaimerModal';
 
 const navKeys = [
   { key: 'inicio', href: '/#inicio' },
@@ -85,6 +86,12 @@ export function Footer() {
           <p className="text-xs text-creme/50">
             {t('rights', { year })}
           </p>
+          <div className="flex flex-col items-center gap-1.5 sm:items-end">
+            <p className="text-xs text-creme/40">
+              {t('aiNotice')}
+            </p>
+            <AiDisclaimerButton />
+          </div>
           <p className="text-xs text-creme/40">
             {t.rich('madeIn', {
               heart: () => <span className="text-dourado">♪</span>,

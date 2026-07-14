@@ -133,7 +133,18 @@
     "navAria": "Footer",
     "followHeading": "Listen and follow",
     "rights": "© {year} Rico Samba. All rights reserved.",
-    "madeIn": "Made with <heart></heart> in Brazil."
+    "madeIn": "Made with <heart></heart> in Brazil.",
+    "aiNotice": "Songs created by Rico Samba with artificial intelligence support.",
+    "aiLink": "Learn more about the creative process"
+  },
+  "aiDisclaimer": {
+    "trigger": "Creative process and AI use",
+    "title": "About the Creative Process",
+    "closeAria": "Close",
+    "p1": "The songs available on this website are authored by Rico Samba (Ricardo Franco Custódio). The entire creative process — including composition, lyrics, melody and artistic concept — was conducted by the artist.",
+    "p2": "Artificial intelligence was used as a supporting tool in stages such as arrangement suggestions, lyric refinement and sound production. All final creative decisions were made exclusively by the artist, who holds full authorship of the works.",
+    "p3": "The phonograms and compositions are protected by Brazilian copyright law (Lei nº 9.610/98) and applicable international legislation. Any unauthorized use is prohibited.",
+    "p4": "For legal, contractual or licensing matters, please contact us via the form on this site."
   },
   "copyButton": {
     "copy": "Copy",

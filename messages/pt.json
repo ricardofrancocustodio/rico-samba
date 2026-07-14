@@ -133,7 +133,18 @@
     "navAria": "Rodapé",
     "followHeading": "Ouça e siga",
     "rights": "© {year} Rico Samba. Todos os direitos reservados.",
-    "madeIn": "Feito com <heart></heart> no Brasil."
+    "madeIn": "Feito com <heart></heart> no Brasil.",
+    "aiNotice": "Músicas criadas por Rico Samba com apoio de inteligência artificial.",
+    "aiLink": "Saiba mais sobre o processo criativo"
+  },
+  "aiDisclaimer": {
+    "trigger": "Processo criativo e uso de IA",
+    "title": "Sobre o Processo Criativo",
+    "closeAria": "Fechar",
+    "p1": "As músicas disponibilizadas neste site são de autoria de Rico Samba (Ricardo Franco Custódio). Todo o processo criativo — incluindo composição, letra, melodia e conceito artístico — foi conduzido pelo artista.",
+    "p2": "A inteligência artificial foi utilizada como ferramenta de apoio em etapas como sugestão de arranjos, refinamento de letras e produção sonora. Todas as decisões criativas finais foram tomadas exclusivamente pelo artista, que detém a autoria integral das obras.",
+    "p3": "Os fonogramas e composições estão protegidos pela legislação brasileira de direitos autorais (Lei nº 9.610/98) e pela legislação internacional aplicável. Qualquer uso não autorizado é vedado.",
+    "p4": "Para questões legais, contratuais ou de licenciamento, entre em contato pelo formulário neste site."
   },
   "copyButton": {
     "copy": "Copiar",
